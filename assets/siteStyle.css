@@ -1,14 +1,10 @@
 nav{
-	background-color: #e60000;
-	min-height: 4em;
-	padding-left: 4em;
-	color: #000000;
-	width: 86.5%;
-	border-radius: 0 0 50px 0;
+	
 }
 
 nav a{
 	text-decoration: none;
+	color: black;
 }
 
 body{
@@ -16,17 +12,38 @@ body{
 	margin: 0 auto;
 }
 
-footer{
+footer{	
 	min-height: 6em;
-	width: 80%;
+	width: 78%;
 	margin: 0 auto;
 	border: 3px red;
 	border-style: solid solid none solid;
 	border-radius: 50px 50px 0 0;
-	color: white;
+	padding-top: 2em;
+	text-align: center;
 }
 
 /*Classes*/
+.trueNav{
+	background-color: #e60000;
+	/*
+	background-image: url("Images/Gradient.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	*/
+	min-height: 3em;
+	padding-top: 0.55em;
+	padding-left: 4em;
+	color: #000000;
+	width: 86.5%;
+	border-radius: 0 50px 50px 0;
+	clear:left;
+}
+
+.nameAndImage{
+	
+}
+
 .mainContent{
 	background-color: #e7e7e7;
 	width: 74%;
@@ -43,7 +60,14 @@ footer{
 .rectangularButton{
 	background-color: white;
 	margin: 2em;
-	padding: 0.25em 1em;	
+	padding: 0.4em 2.5em;	
 	border-radius: 20px;
-	width: 5em;
+	font-size: 20px;
+}
+
+/*Images*/
+.headerLogo{
+	width: 10%;
+	height: 10%;
+	float: left;
 }
