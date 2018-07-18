@@ -3,7 +3,7 @@ nav{
 	min-height: 4em;
 	padding-left: 4em;
 	color: #000000;
-	width: 87%;
+	width: 86.5%;
 	border-radius: 0 0 50px 0;
 }
 
@@ -17,21 +17,23 @@ body{
 }
 
 footer{
-	background-color: #e60000;
 	min-height: 6em;
 	width: 80%;
 	margin: 0 auto;
+	border: 3px red;
+	border-style: solid solid none solid;
 	border-radius: 50px 50px 0 0;
 	color: white;
 }
 
 /*Classes*/
 .mainContent{
-	background-color: #f1f1f1;
-	width: 75%;
+	background-color: #e7e7e7;
+	width: 74%;
 	margin: 0 auto;
 	padding: 0.5em;
 	min-height: 50em;
+	border-left: 3px solid red;
 }
 
 .internalContainer{
@@ -41,5 +43,7 @@ footer{
 .rectangularButton{
 	background-color: white;
 	margin: 2em;
-	padding: 0.25em 1em;
+	padding: 0.25em 1em;	
+	border-radius: 20px;
+	width: 5em;
 }
