@@ -1,0 +1,202 @@
+/*Desktop Design*/
+@media only screen and (min-width:900px){
+	/*Classes*/
+	.displayTable{
+		width: 100%;
+	}
+	.displayTable tr:nth-child(even){
+		background-color: #dadcdf;
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+	}
+	
+	.container{
+		width: 95%; 
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.form-control{
+		margin: 0 auto !important;
+		width: 50% !important;
+	}
+	
+	.formContainer{
+		margin-left: 45px;
+		margin-right:45px;
+		background-color: #e9ecef;
+		width: 75%;
+		position:relative;
+		vertical-align: center;
+		padding: 15px;
+	}
+	
+	.jumbotron{
+		margin-bottom: 2rem;
+		background-color: #e9ecef;
+		border-radius: .3rem;
+		padding: 4rem 2rem;
+	}
+	
+	.header{
+		margin: 0;
+		padding-top: 50px;
+	}	
+	
+	.btn{
+		padding:5px 0;
+		background-color: #333397;
+		color: #ffffff;
+		font-weight: bold;
+		font-size: 2rem;
+		border: 0;
+		letter-spacing: .1em;
+		width: 15%;
+		display: inline-block;
+	}
+	
+	/*Ids*/
+	#adminLoginForm{
+	
+	}	
+	
+	/*General Declarations*/
+	
+	body{
+		text-align: center;
+		background-color: #FFFFFF;
+		font-size: 20px;
+		margin: 0;
+		font-weight: 400; 
+		line-height: 1.5; 
+		color: #212529;		
+	}
+	
+	a{
+		text-decoration: none;
+		color: #333397;
+		text-align:center;
+		margin-bottom: 5px;
+	}
+	
+	input{
+		border-radius: 10px;
+		padding:5px;
+		font-size: 1rem;
+		display: inline-block;
+		
+	}
+	
+	div{
+		display:block;
+	}
+	
+	ul, li{
+		list-style: none;
+		text-align:center;
+	
+	}
+	
+	/* Table Section */	
+	table{
+		text-align:center;
+		border-collapse: collapse;
+		margin: 0 auto;
+	}
+	
+	th{
+		font-size: 1em;
+		padding-bottom: 5px;
+		min-width: 6em;
+	}
+	
+	th:first-of-type{
+		min-width: 1em;
+	}
+	
+	.lawyers, .tickets{
+		width: 90%;
+		vertical-align: top;
+		margin: 0 auto;
+		border-radius: 20px 0px 0px 20px;
+		border-style: solid;
+		border-color: #babcbf;
+		overflow-y:scroll;
+		
+	}
+
+	.sendToSelected{
+		width: 95%;
+		vertical-align: top;
+		margin: 0 auto;
+	}
+	
+	.ticketSubmit{
+		padding: 10px;
+		margin: 1em 0.25em;
+		height: 3em;
+		width: 230px;
+		color: #FFFFFF;
+		text-align: center;
+		text-decoration: none;
+		font-size: 30px;
+		background-color: #333397;
+		border-radius: 20px;
+		border: none;
+		-webkit-transition-duration: 0.7s;
+		transition-duration: 0.7s;
+		cursor: pointer;	
+	}
+	
+	
+	.tickets{
+		height:30em;
+	}
+	
+	.sentTickets{
+		width: 90%;
+		vertical-align: top;
+		margin: 0 auto;
+		border-radius: 20px 0px 0px 20px;
+		border-style: solid;
+		border-color: #babcbf;
+		overflow-y:scroll;
+		height:25em;
+		display: none;
+	}
+	
+	
+	.sentTickets th:first-of-type{
+		min-width: 8em;
+	}
+	
+	.lawyers{
+		height:15em;
+	}
+	
+	.hideButton{
+		padding:.5em;
+		margin:1em;
+	}
+	
+     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

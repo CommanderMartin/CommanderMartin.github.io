@@ -54,7 +54,7 @@ footer{
 	padding: 0.5em;
 	min-height: 50em;
 	border-left: 3px solid;
-	border-color: #b11a21;;
+	border-color: #b11a21;
 }
 
 .leftContent{
@@ -67,7 +67,7 @@ footer{
 	margin: 1em auto;
 	padding: 0.5em 0.5em 1em 0.5em;
 	background-color: #e0e0e0;
-	min-height: 15em;
+	min-height: 13em;
 	border-radius: 10px;
 }
 

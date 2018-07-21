@@ -1,0 +1,12 @@
+[27-Mar-2018 21:17:27 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/gwatson117/public_html/cap2/includes/connection.php on line 23
+[27-Mar-2018 21:19:40 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/gwatson117/public_html/cap2/includes/connection.php on line 23
+[27-Mar-2018 21:19:41 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/gwatson117/public_html/cap2/includes/connection.php on line 23
+[27-Mar-2018 21:19:42 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/gwatson117/public_html/cap2/includes/connection.php on line 23
+[28-Mar-2018 03:11:38 UTC] PHP Notice:  Undefined index: fName in /home/gwatson117/public_html/cap2/includes/connection.php on line 25
+[28-Mar-2018 03:11:38 UTC] PHP Notice:  Undefined index: lName in /home/gwatson117/public_html/cap2/includes/connection.php on line 25
+[06-Apr-2018 00:27:59 UTC] PHP Notice:  Undefined variable: result in /home/gwatson117/public_html/cap2/includes/connection.php on line 19
+[06-Apr-2018 00:27:59 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/gwatson117/public_html/cap2/includes/connection.php on line 19
+[06-Apr-2018 00:29:18 UTC] PHP Notice:  Undefined variable: result in /home/gwatson117/public_html/cap2/includes/connection.php on line 19
+[06-Apr-2018 00:29:18 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/gwatson117/public_html/cap2/includes/connection.php on line 19
+[06-Apr-2018 00:31:38 UTC] PHP Notice:  Undefined variable: result in /home/gwatson117/public_html/cap2/includes/connection.php on line 19
+[06-Apr-2018 00:31:38 UTC] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/gwatson117/public_html/cap2/includes/connection.php on line 19
