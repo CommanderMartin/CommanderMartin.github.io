@@ -71,16 +71,29 @@ footer{
 	border-radius: 10px;
 }
 
+.projectImageAreaContainer{
+	float: left;
+	width: 20%;
+	height: 20%;
+	background-color: #f1f0ee;
+	border-radius: 10px;
+	margin-right: 1em;
+}
+
+.projectTextAreaContainer{
+	margin-bottom: 2em;
+}
+
 .navInternalContainer{
 	padding: 1.25em 2em;
 	float: right;
 }
 
 .rectangularButton{
-	background-color: white;
-	margin: 0.8em;
-	padding: 0.2em 2em;	
-	border-radius: 20px;
+	background-color: #f1f0ee;
+	margin: 0.1em;
+	padding: 0.2em 1.9em;	
+	border-radius: 10px;
 	font-size: 24px;	
 }
 
@@ -97,8 +110,96 @@ footer{
 }
 
 .projectDisplayImage{
-	width: 9em;
-	height: 9em;
-	float: left;
+	width: 90%;
+	height: 90%;
 	padding: 0.5em;
+	margin: 0 auto;
 }
+
+.projectThumbnailImage{
+	width: 55%;
+	height: 55%;
+	margin: auto;
+}
+
+.thumbnailImages1, .thumbnailImages2, .thumbnailImages3{
+	width: 70%;
+	margin: 0 auto;
+}
+
+/* Slick */
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    position: absolute;
+    top: 50%;
+
+    display: block;
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    border: none;
+	border-radius: 5px;
+    outline: none;
+    background: #e0e0e0;
+}
+.slick-prev:hover,
+.slick-next:hover
+{
+	background-color: #b11a21;
+}
+
+.slick-prev
+{
+    left: -20px;
+	color: #b11a21;
+	font-size: 30px;
+}
+
+.slick-next
+{
+    right: -20px;
+	color: #b11a21;
+	font-size: 30px;
+}
+
+.slick-prev:hover, 
+.slick-next:hover{
+	color: #e0e0e0;
+}
+
+/*Custom slick*/
+.thumbnail{
+	text-align: center;
+	line-height: 25px;
+}
+
+.slick-slide{
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
