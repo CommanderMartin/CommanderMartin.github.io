@@ -62,6 +62,46 @@ footer{
 	padding: 0.5em;
 }
 
+.indexSelfIntro{
+	width: 90%;
+	margin: 1em auto 10em auto;
+	padding: 0.5em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	border-radius: 10px;
+}
+
+.indexSelfIntro h2{
+	font-size: 4em;
+	padding-left: 40px;
+	margin-top: -0.05em;
+}
+
+.indexSelfIntro h3{
+	font-size: 3em;
+	padding-left: 3em;
+	margin-top: -1.25em;
+}
+
+.textColorRed{
+	color: #b11a21;
+}
+
+.bumper{
+	font-size: 1.5em;
+}
+
+.bumper:nth-of-type(1){
+	padding-left: 2.5em;
+}
+
+.bumper:nth-of-type(2){
+	padding-left: 5em;
+}
+
+.bumper:nth-of-type(3){
+	padding-left: 7.5em;
+}
+ 
 .projectDisplay{
 	width: 75%;
 	margin: 1em auto;
@@ -91,14 +131,52 @@ footer{
 
 .rectangularButton{
 	background-color: #f1f0ee;
-	margin: 0.1em;
+	border: #f1f0ee solid;
+	margin: 0.2em;
 	padding: 0.2em 1.9em;	
 	border-radius: 10px;
 	font-size: 24px;	
 }
 
+.rectangularButton:hover{
+	border: #b11a21 solid;
+}
+
+.rectangularButton a{
+	text-decoration: none;
+	color: #000000;
+}
+
 .clearFloat{
 	clear: right;
+}
+
+.infoBox{
+	width: 75%;
+	margin: 1em auto;
+	padding: 1em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	min-height: 3em;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.sitemapPageContainer{
+	width: 75%;
+	margin: 1em auto;
+	padding: 0.5em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	min-height: 3em;
+	border-radius: 10px;
+}
+
+.insetSitemapPageContainer{
+	width: 65%;
+	margin: 0 auto;
+	padding: 0.5em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	min-height: 3em;
+	border-radius: 10px;
 }
 
 /*Images*/
