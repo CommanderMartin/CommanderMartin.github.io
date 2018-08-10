@@ -72,7 +72,7 @@ footer{
 
 .indexSelfIntro h2{
 	font-size: 4em;
-	padding-left: 40px;
+	padding-left: 1.25em;
 	margin-top: -0.05em;
 }
 
@@ -136,6 +136,7 @@ footer{
 	padding: 0.2em 1.9em;	
 	border-radius: 10px;
 	font-size: 24px;	
+	cursor: pointer;
 }
 
 .rectangularButton:hover{
@@ -182,8 +183,8 @@ footer{
 /*Images*/
 .headerLogo{
 	padding-left: 1em;
-	width: 4%;
-	height: 4%;
+	width: 4.5%;
+	height: 4.5%;
 	float: left;
 }
 
@@ -260,6 +261,184 @@ footer{
 .slick-slide{
 	margin-right: 2px;
 	margin-left: 2px;
+}
+
+/*Media Queries*/
+@media only screen and (max-width: 1400px){
+	.headerLogo{
+		width: 5%;
+		height: 5%;
+	}		
+	
+	.mainContent{
+		width: 80%;
+	}
+	
+	.indexSelfIntro{
+		margin: 1em auto 8em auto;
+	}
+	
+	.projectDisplay{
+		width: 85%;
+	}
+	
+	.bumper{
+		font-size: 1.3em;
+	}
+}
+
+@media only screen and (max-width: 1000px){
+	.headerLogo{
+		width: 7%;
+		height: 7%;
+	}		
+	
+	.mainContent{
+		width: 95%;
+		border-left: none;
+	}
+	
+	.leftContent{
+		display: none;
+	}
+	
+	.indexSelfIntro{
+		width: 95%;
+		margin: 1em auto 6em auto;
+	}
+	
+	.rectangularButton{
+		padding: 0.2em 1.5em;
+	}
+	
+	.bumper{
+		font-size: 1.3em;
+	}
+}
+
+@media only screen and (max-width: 800px){
+	.headerLogo{
+		width: 9%;
+		height: 9%;
+	}		
+	
+	.mainContent{
+		width: 92%;
+		border-left: none;
+	}
+	
+	.rectangularButton{
+		padding: 0.2em 1.25em;	
+		font-size: 22px;	
+	}	
+	
+	.bumper{
+		font-size: 1em;
+	}
+	
+	.indexSelfIntro h2{
+		font-size: 3.25em;
+		padding-left: 0.75em;
+		margin-top: -0.05em;
+	}
+
+	.indexSelfIntro h3{
+		font-size: 2.25em;
+		padding-left: 2em;
+		margin-top: -1.25em;
+	}
+	
+	.bumper:nth-of-type(1){
+		padding-left: 0.5em;
+	}
+
+	.bumper:nth-of-type(2){
+		padding-left: 3em;
+	}
+
+	.bumper:nth-of-type(3){
+		padding-left: 5.5em;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	.headerLogo{
+		width: 12%;
+		height: 12%;
+	}
+	
+	.rectangularButton{
+		padding: 0.1em 0.7em;	
+		font-size: 20px;	
+	}	
+	
+	.bumper{
+		font-size: 0.8em;
+	}
+	
+	.indexSelfIntro{
+		width: 95%;
+		margin: 1em auto 4em auto;
+	}
+	
+	.indexSelfIntro h2{
+		font-size: 2.75em;
+		padding-left: 0.75em;
+		margin-top: -0.05em;
+	}
+
+	.indexSelfIntro h3{
+		font-size: 2em;
+		padding-left: 2em;
+		margin-top: -1.25em;
+	}
+	
+	.navInternalContainer{
+		padding: 1.25em 1.25em;
+		float: right;
+	}
+}
+
+@media only screen and (max-width: 500px){
+	.headerLogo{
+		width: 15%;
+		height: 15%;
+	}
+	
+	.indexSelfIntro{
+		width: 97%;
+		margin: 1em auto 2em auto;
+	}
+	
+	.rectangularButton{
+		padding: 0.1em 0.7em;	
+		font-size: 20px;	
+	}	
+	
+	.bumper{
+		font-size: 0.75em;
+	}
+	
+	.indexSelfIntro h2{
+		font-size: 2.5em;
+		padding-left: 0.75em;
+		margin-top: -0.05em;
+	}
+
+	.indexSelfIntro h3{
+		font-size: 1.75em;
+		padding-left: 2em;
+		margin-top: -1.25em;
+	}
+	
+	.navInternalContainer{
+		padding: 1.25em 0.25em;
+		float: right;
+	}
+	
+	.projectDisplay{
+		width: 90%;
+	}
 }
 
 
