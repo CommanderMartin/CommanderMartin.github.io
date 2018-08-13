@@ -291,7 +291,7 @@ footer{
 	.headerLogo{
 		width: 7%;
 		height: 7%;
-	}		
+	}	
 	
 	.mainContent{
 		width: 95%;
@@ -313,6 +313,11 @@ footer{
 	
 	.bumper{
 		font-size: 1.3em;
+	}
+	
+	.projectImageAreaContainer{
+		width: 25%;
+		height: 25%;
 	}
 }
 
@@ -359,6 +364,11 @@ footer{
 	.bumper:nth-of-type(3){
 		padding-left: 5.5em;
 	}
+	
+	.projectImageAreaContainer{
+		width: 30%;
+		height: 30%;
+	}
 }
 
 @media only screen and (max-width: 600px){
@@ -397,6 +407,11 @@ footer{
 		padding: 1.25em 1.25em;
 		float: right;
 	}
+	
+	.projectImageAreaContainer{
+		width: 35%;
+		height: 35%;
+	}
 }
 
 @media only screen and (max-width: 500px){
@@ -411,22 +426,22 @@ footer{
 	}
 	
 	.rectangularButton{
-		padding: 0.1em 0.7em;	
-		font-size: 20px;	
+		padding: 0.1em 0.5em;	
+		font-size: 18px;	
 	}	
 	
 	.bumper{
-		font-size: 0.75em;
+		font-size: 0.6em;
 	}
 	
 	.indexSelfIntro h2{
-		font-size: 2.5em;
+		font-size: 2em;
 		padding-left: 0.75em;
 		margin-top: -0.05em;
 	}
 
 	.indexSelfIntro h3{
-		font-size: 1.75em;
+		font-size: 1.25em;
 		padding-left: 2em;
 		margin-top: -1.25em;
 	}
@@ -438,6 +453,58 @@ footer{
 	
 	.projectDisplay{
 		width: 90%;
+	}
+	
+	.projectImageAreaContainer{
+		width: 40%;
+		height: 40%;
+	}
+}
+
+@media only screen and (max-width: 400px){
+	.headerLogo{
+		width: 15%;
+		height: 15%;
+	}
+	
+	.indexSelfIntro{
+		width: 98%;
+		margin: 1em auto 2em auto;
+	}
+	
+	.rectangularButton{
+		padding: 0.15em 0.25em;	
+		font-size: 16px;	
+	}	
+	
+	.bumper{
+		font-size: 0.55em;
+	}
+	
+	.indexSelfIntro h2{
+		font-size: 1.5em;
+		padding-left: 0.75em;
+		margin-top: -0.05em;
+	}
+
+	.indexSelfIntro h3{
+		font-size: 0.75em;
+		padding-left: 2em;
+		margin-top: -1.25em;
+	}
+	
+	.navInternalContainer{
+		padding: 1em 0.1em;
+		float: right;
+	}
+	
+	.projectDisplay{
+		width: 90%;
+	}
+	
+	.projectImageAreaContainer{
+		width: 40%;
+		height: 40%;
 	}
 }
 
