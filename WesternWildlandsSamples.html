@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Commander Martin's Portfolio - Macon Justice Website Code Samples</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--[if lt EI 9]>
+		<script src= "http://html5shim.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+		
+		<link rel = "stylesheet" type = "text/css" href = "assets/siteStyle.css">
+		<link rel = "stylesheet" type = "text/css" href = "assets/slick/slick.css"/>		
+		
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-32x32.png" sizes = "32x32" />
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-16x16.png" sizes = "16x16" />
+	</head>
+	
+	<div class = "aboveNav"></div>	
+	
+	<nav>	
+		<div class = "logo">
+			<img class = "headerLogo" src = "assets/Images/Logo.png" alt = "Commanding Games Studios Logo">
+		</div>
+	
+		<div class = "navInternalContainer">
+			<a class = "navbarA" href="index.html"><button class = "rectangularButton" type="button">Home</button></a>
+			
+			<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Projects</button></a>
+				
+			<a class = "navbarA" href="https://linkedin.com/in/joshua-holland-85791b134/"><button class = "rectangularButton" type="button">LinkedIn</button></a>
+		</div>
+	</nav>
+	
+	<div class = "clearFloat"></div>
+
+	<body>
+		<!-- Main Content section -->
+		<main>
+			<div class = "leftContent">
+				
+			</div>
+			
+			<div class = "mainContent">
+				<div class = "codeSampleContent">
+					<div class = "codeSampleHeader">					
+						<span class = "textColorRed customh1">W</span><span class = "redUnderline">estern</span>
+						<span class = "textColorRed customh1">W</span><span class = "redUnderline">ildlands</span>
+					</div>		
+
+					<h2> Code Sample 1 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;Moves or inserts items into or out of the player inventory</span>
+					<br><br>
+					
+					<p class = "externalReferenceExplainer">
+						External References:
+						<br><br>
+						GIM - Script dedicated to managing the game's UI<br>
+						GetInventoryLists - Empties and refills the lists managing the player's inventory items<br>
+						TransferInventoryItemContinuation - Moves item to new location in the inventory, resets and updates UI sprites, and empties controller variables
+					</p>
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+//Starts the process ----------------------------------------------------------------------------------------------------------------------------
+public void StartItemMove(GameObject pressedButton)
+{
+    if(activatedSlot1 == null)
+    {
+        if(pressedButton.transform.childCount &gt; 1)
+        {
+            activatedSlot1 = pressedButton;
+
+            //Sprite mouse following and button enabling
+            isMoving = true;
+            gim.InventoryUIButtons("drop button ED");
+
+            activatedSlot1.transform.GetChild(0).GetComponent&lt;Canvas>().overrideSorting = true;
+        }
+    }
+    else if(activatedSlot1 != null && activatedSlot2 != activatedSlot1)
+    {
+        activatedSlot2 = pressedButton;
+
+        if(activatedSlot1 == activatedSlot2)
+        {
+            //Sprite mouse following and button disabling
+            isMoving = false;
+            gim.InventoryUIButtons("drop button ED");
+
+            //Disable override sorting
+            activatedSlot1.transform.GetChild(0).GetComponent&lt;Canvas>().overrideSorting = false;
+
+            //Re-parent
+            activatedSlot1.transform.GetChild(0).transform.localPosition = new Vector3(0f, 0f, 0f);
+
+            //Clear activated slots
+            activatedSlot1 = null;
+            activatedSlot2 = null;
+        }
+        else
+        {
+            TransferInventoryItem();
+
+            //Update list
+            GetInventoryLists();
+        }
+    }
+}
+
+//Continues process
+private void TransferInventoryItem()
+{
+    //Inter-inventory moving
+    if((activatedSlot1 != null && activatedSlot2 != null) &&
+        (activatedSlot1.transform.GetChild(1).GetComponent&lt;Item&gt;() && activatedSlot2.transform.childCount &lt; 2))
+    {
+        //Debug.Log(activatedSlot1.transform.parent.parent.name);
+
+        //container to player inv, npc inv to player inv ---- checks weight
+        if (((currentWeight + activatedSlot1.transform.GetChild(1).GetComponent&lt;Item>().weight &lt;= maxWeight) &&
+            (activatedSlot1.transform.parent.name == "ContainerInv"))
+            ||
+            (activatedSlot1.transform.parent.parent.name == "NPCInv" && activatedSlot2.transform.parent.parent.name == "PlayerInv"))
+        {
+            TransferInventoryItemContinuation();
+            //Debug.Log("container to player");
+        }            
+        //Shop inventory inventories ---- doesnt check weight
+        else if((activatedSlot1.transform.parent.name == "ForSale" || activatedSlot1.transform.parent.name == "Cart") &&
+            (activatedSlot2.transform.parent.name == "ForSale" || activatedSlot2.transform.parent.name == "Cart"))
+        {
+            TransferInventoryItemContinuation();
+            //Debug.Log("shop inventory");
+
+            //Notify shop script of update
+            if (activeShop != null)
+            {
+                if(activeShop.GetComponent&lt;ShopUI&gt;() == true)
+                {
+                    activeShop.GetComponent&lt;ShopUI&gt;().GetShopLists();
+                }
+            }
+        }
+        //player inv to player inv, player inv to container, container to container, player inv to npc inv, npc inv to npc inv ---- doesnt check weight
+        else if (
+            ((activatedSlot1.transform.parent.transform.parent == activatedSlot2.transform.parent.transform.parent) &&
+            (activatedSlot1.transform.parent.name != "ForSale" || (activatedSlot1.transform.parent.name != "Cart")))
+            ||
+            ((activatedSlot1.transform.parent.name == "Hotbar" || activatedSlot1.transform.parent.name == "Backpack") &&
+            activatedSlot1.transform.parent != activatedSlot2.transform.parent)
+            ||
+            (activatedSlot1.transform.parent.name == "ContainerInv" && activatedSlot2.transform.parent.name == "ContainerInv")
+            ||
+            (activatedSlot1.transform.parent.name == "PlayerInv" && activatedSlot2.transform.parent.name == "NPCInv"))
+        {
+            TransferInventoryItemContinuation();
+            //Debug.Log("same to same, inv to container");
+        }
+        else
+        {
+            //Debug.Log(activatedSlot1.transform.parent.parent.parent.name + " " + activatedSlot2.transform.parent.parent.name);
+            Debug.Log("Max weight reached");
+        }            
+    }
+    else if ((activatedSlot1 != null && activatedSlot2 != null) &&
+        (activatedSlot1.transform.GetChild(1).GetComponent&lt;Item&gt;() && activatedSlot2.transform.GetChild(1).GetComponent&lt;Item&gt;()))
+    {
+        Debug.Log("The inventory slot at the pressed slot already contained an item");
+    }
+    else
+    {
+        Debug.Log("An unexpected error occured in the inventory script");
+    }
+}						
+							</code>
+						</pre>
+					</div>	
+					
+					<h2> Code Sample 2 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;Saves and loads binary data to/from one of three savefiles</span>
+					<br><br>	
+
+					<p class = "externalReferenceExplainer">
+						External References:
+						<br><br>
+						DS - Serializable script used for on and off-loading data to and from save files<br>
+						UpdateEntityPositions - Updates select entities with the position in the save file
+					</p>
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+//Saves the current game
+public void saveData(int save)
+{
+    BinaryFormatter bf = new BinaryFormatter();
+    string saveName;
+        
+    //Player Pos
+    ds.playerPosX = player.transform.position.x;
+    ds.playerPosY = player.transform.position.y;
+    ds.playerPosZ = player.transform.position.z;
+
+    //Player Rot
+    ds.playerRotX = player.transform.rotation.eulerAngles.x;
+    ds.playerRotY = player.transform.rotation.eulerAngles.y;
+    ds.playerRotZ = player.transform.rotation.eulerAngles.z;
+
+    //Wagon Pos
+    ds.wagonPosX = wagon.transform.position.x;
+    ds.wagonPosY = wagon.transform.position.y;
+    ds.wagonPosZ = wagon.transform.position.z;
+
+    //Wagon Rot
+    ds.wagonRotX = wagon.transform.rotation.eulerAngles.x;
+    ds.wagonRotY = wagon.transform.rotation.eulerAngles.y;
+    ds.wagonRotZ = wagon.transform.rotation.eulerAngles.z;
+
+    //Level
+    ds.levelName = SceneManager.GetActiveScene().name;
+
+    if (save == 1)
+    {
+        saveName = "/slot1.wwsd";
+    }
+    else if(save == 2)
+    {
+        saveName = "/slot2.wwsd";
+    }
+    else if(save == 3)
+    {
+        saveName = "/slot3.wwsd";
+    }
+    else
+    {
+        saveName = "/slot1.wwsd";
+    }
+
+    Debug.Log(folderLocation);
+    FileStream file = File.Create(folderLocation + "/WesternWildlands-JTO" + saveName);
+    bf.Serialize(file, ds);
+    file.Close();
+}
+
+//Loads a previous game
+public void loadData(int save)
+{
+    BinaryFormatter bf = new BinaryFormatter();
+    string saveName;
+
+    if (save == 1)
+    {
+        saveName = "/slot1.wwsd";
+    }
+    else if (save == 2)
+    {
+        saveName = "/slot2.wwsd";
+    }
+    else if (save == 3)
+    {
+        saveName = "/slot3.wwsd";
+    }
+    else
+    {
+        saveName = "/slot1.wwsd";
+    }
+
+    FileStream file = File.Open(folderLocation + "/WesternWildlands-JTO" + saveName, FileMode.Open);
+    this.ds = (DS)bf.Deserialize(file);
+    file.Close();
+
+    if(SceneManager.GetActiveScene().name != ds.levelName)
+    {
+        if (SceneManager.GetSceneByName(ds.levelName).IsValid())
+        {
+            SceneManager.LoadScene(ds.levelName);
+        }
+    }
+
+    UpdateEntityPositions();
+}
+							</code>
+						</pre>
+					</div>
+					
+					<h2> Code Sample 3 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;Reduce NPC needs on a single or repeating basis</span>
+					<br><br>					
+					
+					<p class = "externalReferenceExplainer">
+						External References:
+						<br><br>
+						UpdateUIElement - Updates the respective display with the new need value
+					</p>
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+public void ModifyNeedValue(string type, int value)
+{
+    if(type == "Health")
+    {
+        Health += value;
+        Health = Mathf.Clamp(Health, 0, 100);
+        UpdateUIElement(1, (Health / 100f));
+    }
+    else if(type == "Food")
+    {
+        Food += value;
+        Food = Mathf.Clamp(Food, 0, 100);
+        UpdateUIElement(2, (Food / 100f));
+    }
+    else if(type == "Water")
+    {
+        Water += value;
+        Water = Mathf.Clamp(Water, 0, 100);
+        UpdateUIElement(3, (Water / 100f));
+    }
+}
+
+public void RecurringNeedValueModification(string type, int value, int repeatCt)
+{
+    StartCoroutine(RecurringEffect(type, value, repeatCt));
+}
+
+IEnumerator RecurringEffect(string type, int value, int repeatCt)
+{
+    if(repeatCt &gt; 0)
+    {
+        repeatCt--;
+        ModifyNeedValue(type, value);
+        yield return new WaitForSeconds(2.0f);
+
+        StartCoroutine(RecurringEffect(type, value, repeatCt));
+    }
+}
+							</code>
+						</pre>
+					</div>
+					
+					<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Check out other projects</button></a>
+				</div>
+		</main>			
+	
+		<div class = "clearFloat"></div>
+		
+		<footer>
+			<div class = "internalContainer">
+				Created in 2018 
+				<br>
+				<br>
+				<a class = "navbarA" href="sitemap.html">Sitemap</a>			
+				<br>
+				<br>
+				Last Updated 9/30/2018			
+			</div>
+		</footer>
+		
+		<div class = "belowFoot"></div>
+	</body>		
+	
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+	
+</html>

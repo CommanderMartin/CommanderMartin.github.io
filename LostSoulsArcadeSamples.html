@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Commander Martin's Portfolio - Lost Souls' Arcade Code Samples</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--[if lt EI 9]>
+		<script src= "http://html5shim.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+		
+		<link rel = "stylesheet" type = "text/css" href = "assets/siteStyle.css">
+		<link rel = "stylesheet" type = "text/css" href = "assets/slick/slick.css"/>		
+		
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-32x32.png" sizes = "32x32" />
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-16x16.png" sizes = "16x16" />
+	</head>
+	
+	<div class = "aboveNav"></div>	
+	
+	<nav>	
+		<div class = "logo">
+			<img class = "headerLogo" src = "assets/Images/Logo.png" alt = "Commanding Games Studios Logo">
+		</div>
+	
+		<div class = "navInternalContainer">
+			<a class = "navbarA" href="index.html"><button class = "rectangularButton" type="button">Home</button></a>
+			
+			<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Projects</button></a>
+				
+			<a class = "navbarA" href="https://linkedin.com/in/joshua-holland-85791b134/"><button class = "rectangularButton" type="button">LinkedIn</button></a>
+		</div>
+	</nav>
+	
+	<div class = "clearFloat"></div>
+
+	<body>
+		<!-- Main Content section -->
+		<main>
+			<div class = "leftContent">
+				
+			</div>
+		
+			<div class = "mainContent">
+				<div class = "codeSampleContent">
+					<div class = "codeSampleHeader">					
+						<span class = "textColorRed customh1">L</span><span class = "redUnderline">ost</span>
+						<span class = "textColorRed customh1">S</span><span class = "redUnderline">ouls</span>'
+						<span class = "textColorRed customh1">A</span><span class = "redUnderline">rcade</span>
+					</div>
+
+					<h2> Code Sample 1 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;Load data from a file, and put game into the recorded data state</span>
+					<br><br>
+
+					<p class = "externalReferenceExplainer">
+						External References:
+						<br><br>
+						GOM - Script that manages the game objectives and what happens when a stage is reached<br>
+						DS - Data storage script; holds data for saving to and loading from a requested JSON save file						
+					</p>
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+//Loading data
+public void LoadData(int saveNumber)
+{
+    //Debug.Log("Started process to load data");
+
+    returnSavePathFromNumber(saveNumber);
+
+    string dataStorageClassFromJSON = File.ReadAllText(saveFilePath);
+    JsonUtility.FromJsonOverwrite(dataStorageClassFromJSON, DS);
+
+    //Set Key data
+    GOM.setKeyState(1, DS.key1Status);
+    GOM.setKeyState(2, DS.key2Status);
+    GOM.setKeyState(3, DS.key3Status);
+    GOM.setKeyState(4, DS.key4Status);
+    GOM.setKeyState(5, DS.key5Status);
+    GOM.setKeyState(6, DS.key6Status);
+
+    //Set Token data
+    GOM.setTokenState(1, DS.token1Status);
+    GOM.setTokenState(2, DS.token2Status);
+    GOM.setTokenState(3, DS.token3Status);
+    GOM.setTokenState(4, DS.token4Status);
+    GOM.setTokenState(5, DS.token5Status);
+
+    //Set Game state
+    GOM.updateGameState(DS.gameState);
+
+    Debug.Log("Data loaded from file " + saveNumber);
+
+    if(SceneManager.GetActiveScene().name == "testScene")
+    {
+        UpdateEntityPositions();
+        ForceMenuButtonsUpdate();
+
+        //Re-find token machines
+        tokenMachines = GameObject.FindGameObjectsWithTag("TokenExchanger");
+
+        if (saveNumber == 4)
+        {
+            NotifyOfTokenAddition(DS.gameState, false);
+        }
+        else
+        {
+            NotifyOfTokenAddition(DS.gameState, true);                
+        }
+            
+        OpenDoorsIfNecessary(DS.key1Status, DS.key2Status, DS.key3Status, DS.key4Status, DS.key5Status, DS.key6Status);
+
+        DoorandKey[] temp = player.GetComponents<DoorandKey>();
+
+        //Enable pertaining key if token is obtained when save is loaded
+        if (DS.token1Status == true && DS.key1Status == false)
+        {
+            temp[0].key.SetActive(true);
+        }
+
+        if (DS.token2Status == true && DS.key2Status == false)
+        {
+            temp[1].key.SetActive(true);
+        }
+
+        if (DS.token3Status == true && DS.key3Status == false)
+        {
+            temp[2].key.SetActive(true);
+        }
+
+        if (DS.token4Status == true && DS.key4Status == false)
+        {
+            temp[3].key.SetActive(true);
+        }
+
+        if (DS.token5Status == true && DS.key5Status == false)
+        {
+            temp[4].key.SetActive(true);
+        }
+
+        if (DS.token5Status == true && DS.key6Status == false && DS.gameInFinalStage == true && DS.soulsToSave == 0)
+        {
+            temp[5].key.SetActive(true);
+        }
+
+        if(DS.token5Status == true)
+        {
+            //Disable nav mesh agent temporarily to allow for teleportation
+            mrSouls.GetComponent&lt;NavMeshAgent&gt;().enabled = false;
+            mrSouls.transform.position = MrSoulsLateGamePosition;
+            mrSouls.GetComponent&lt;NavMeshAgent&gt;().enabled = true;
+        }
+
+        //Turn on mr souls if we are in the end game
+        if(DS.gameInFinalStage == true)
+        {
+            mrSouls.GetComponent&lt;MrSoulsController&gt;().ToggleActivity();
+        }
+
+        //Trigger soul snatchers rewards if the variable is true
+        if (ssWon == true)
+        {
+            SSWinContd();
+            //Debug.Log("Triggered sswoncontd");
+            //ssWon = false;
+        }
+    }
+}							
+							</code>
+						</pre>
+					</div>	
+					
+					<h2> Code Sample 2 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;Play death sequence when the monster has caught the player</span>
+					<br><br>			
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+//Creates mask for player to look at
+private void InstantiateMask()
+{
+    GameObject temp = Instantiate(Face, player.transform.GetChild(1).transform);
+    temp.transform.Rotate(180f, 90f, 0);
+    StartCoroutine("Jumpscare");
+}
+
+IEnumerator Jumpscare()
+{
+    yield return new WaitForSeconds(5.0f);
+    player.transform.GetChild(1).transform.position = 
+        new Vector3(player.transform.GetChild(1).transform.position.x, 
+        player.transform.GetChild(1).transform.position.y - 0.5f,
+        player.transform.GetChild(1).transform.position.z);
+    StartCoroutine("YouHaveDied");
+}							
+							</code>
+						</pre>
+					</div>
+					
+					<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Check out other projects</button></a>
+				</div>		
+			</div>
+		</main>		
+	
+		<div class = "clearFloat"></div>
+		
+		<footer>
+			<div class = "internalContainer">
+				Created in 2018 
+				<br>
+				<br>
+				<a class = "navbarA" href="sitemap.html">Sitemap</a>			
+				<br>
+				<br>
+				Last Updated 9/30/2018			
+			</div>
+		</footer>
+		
+		<div class = "belowFoot"></div>
+	</body>		
+	
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+	
+</html>

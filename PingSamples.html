@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Commander Martin's Portfolio - Ping Code Samples</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--[if lt EI 9]>
+		<script src= "http://html5shim.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+		
+		<link rel = "stylesheet" type = "text/css" href = "assets/siteStyle.css">
+		<link rel = "stylesheet" type = "text/css" href = "assets/slick/slick.css"/>		
+		
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-32x32.png" sizes = "32x32" />
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-16x16.png" sizes = "16x16" />
+	</head>
+	
+	<div class = "aboveNav"></div>	
+	
+	<nav>	
+		<div class = "logo">
+			<img class = "headerLogo" src = "assets/Images/Logo.png" alt = "Commanding Games Studios Logo">
+		</div>
+	
+		<div class = "navInternalContainer">
+			<a class = "navbarA" href="index.html"><button class = "rectangularButton" type="button">Home</button></a>
+			
+			<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Projects</button></a>
+				
+			<a class = "navbarA" href="https://linkedin.com/in/joshua-holland-85791b134/"><button class = "rectangularButton" type="button">LinkedIn</button></a>
+		</div>
+	</nav>
+	
+	<div class = "clearFloat"></div>
+
+	<body>
+		<!-- Main Content section -->
+		<main>
+			<div class = "leftContent">
+				
+			</div>
+		
+			<div class = "mainContent">
+				<div class = "codeSampleContent">
+					<div class = "codeSampleHeader">					
+						<span class = "textColorRed customh1">P</span><span class = "redUnderline">in</span>g
+					</div>		
+
+					<h2> Code Sample 1 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;Check temporary storage for new level score to be merged to save file</span>
+					<br><br>
+
+					<p class = "externalReferenceExplainer">
+						External References:
+						<br><br>
+						saveHelper - Data storage script; holds data for saving to and loading from a requested JSON save file<br>
+						currentLevelCluster - Holds unsaved (and unverified) data while the player progresses through a level set; data is merged into saveHelper upon 
+						returning to level select scene<br>
+						levels - A list of data for critical level variables like name and score
+					</p>
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+private void CheckForNewLevelClusterDataToBeAdded(List&lt;GameObject&gt; levels)
+{
+    if(currentLevelCluster.Count > 0)
+    {
+        //Merge data into savehelper and level limit lists
+        //For each item in the savehelper level list
+        for(int a = 0; a &lt; saveHelper.levels.Count; a++)
+        {
+            //For each item in the currentlevelcluster list
+            for(int b = 0; b &lt; currentLevelCluster.Count; b++)
+            {
+                //If the savehelper level name and the clusterlevelcluster level name are the same
+                if(saveHelper.levels[a].levelName == currentLevelCluster[b].levelName)
+                {
+                    //Debug.Log("Found matching level names");
+
+                    //Prevent score from being above max score
+                    if (currentLevelCluster[b].levelScore &gt; levels[a].GetComponent&lt;LevelLimit&gt;().maxScore)
+                    {
+                        currentLevelCluster[b].levelScore = levels[a].GetComponent&lt;LevelLimit&gt;().maxScore;
+                        levels[a].GetComponent&lt;LevelLimit&gt;().levelScore = currentLevelCluster[b].levelScore;
+                        saveHelper.levels[a].levelScore = currentLevelCluster[b].levelScore;
+                    }
+                    else
+                    {
+                        levels[a].GetComponent&lt;LevelLimit&gt;().levelScore = currentLevelCluster[b].levelScore;
+                    }
+                }
+            }
+        }
+
+        //Clear the old data out after we are done with it
+        currentLevelCluster.Clear();
+    }
+}							
+							</code>
+						</pre>
+					</div>	
+					
+					<h2> Code Sample 2 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;Perform linear interpolations between two colors (bi-directional), and apply color to SpriteRenderer or Image</span>
+					<br><br>	
+
+					<p class = "externalReferenceExplainer">
+						External References:
+						<br><br>
+						startingColor - The color the pulser should be idle at<br>
+						pulserColor - The color the pulser should go to<br>
+						lerpValue - The primary indicator of how much time has passed<br>
+						lerpDuration - A secondary modifier to slow down the lerpValue<br>
+						colorSwitcherHelper - Small function that changes the direction<br>
+					</p>					
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+//Start fading sequence
+public void fadeToColor()
+{   
+    //If we are in game
+    if(this.GetComponent&lt;SpriteRenderer&gt;())
+    {
+        if (this.GetComponent&lt;SpriteRenderer&gt;().color == startingColor)
+        {
+            colorSwitcher(this.GetComponent&lt;SpriteRenderer&gt;().color, pulserColor, this.gameObject);
+        }
+        else
+        {
+            colorSwitcher(this.GetComponent&lt;SpriteRenderer&gt;().color, startingColor, this.gameObject);
+        }
+    }
+    //If we are on the menu
+    else if (this.GetComponent&lt;Image&gt;())
+    {
+        if (this.GetComponent&lt;Image&gt;().color == startingColor)
+        {
+            colorSwitcher(this.GetComponent&lt;Image&gt;().color, pulserColor, this.gameObject, true);
+        }
+        else
+        {
+            colorSwitcher(this.GetComponent&lt;Image&gt;().color, startingColor, this.gameObject, true);
+        }
+    }
+    //If we are being used with an hostile
+    else if (this.transform.GetChild(0).GetComponent&lt;SpriteRenderer&gt;())
+    {
+        if (this.transform.GetChild(0).GetComponent&lt;SpriteRenderer&gt;().color == startingColor)
+        {
+            colorSwitcher(this.transform.GetChild(0).GetComponent&lt;SpriteRenderer>().color, pulserColor, this.transform.GetChild(0).gameObject);
+        }
+        else
+        {
+            colorSwitcher(this.transform.GetChild(0).GetComponent&lt;SpriteRenderer&gt;().color, startingColor, this.transform.GetChild(0).gameObject);
+        }
+    }
+}
+
+//Performs fading
+private void colorSwitcher(Color currentColor, Color goingToColor, GameObject target, bool UIMode = false)
+{
+    if (lerpValue &lt; 1 && lerpValue >= 0)
+    {   
+        //Going forwards
+        if(directionFlipper == true)
+        {                
+            lerpValue += (Time.deltaTime * rampUpVal) / lerpDuration;
+
+            if(UIMode == false)
+            {
+                target.GetComponent&lt;SpriteRenderer&gt;().color = Color.Lerp(currentColor, goingToColor, lerpValue);
+            }
+            else
+            {
+                target.GetComponent&lt;Image&gt;().color = Color.Lerp(currentColor, goingToColor, lerpValue);
+            }                
+        }
+        //Going backwards
+        else if(directionFlipper == false)
+        {
+            lerpValue += (Time.deltaTime * rampDownVal) / lerpDuration;
+
+            if(UIMode == false)
+            {
+                target.GetComponent&lt;SpriteRenderer&gt;().color = Color.Lerp(currentColor, goingToColor, lerpValue);
+            }
+            else
+            {
+                target.GetComponent&lt;Image&gt;().color = Color.Lerp(currentColor, goingToColor, lerpValue);
+            }                
+        }
+    
+        //Check to see if we need to proceed in this direction or start heading the other way
+        if (lerpValue &lt; 1)
+        {
+            StartCoroutine(colorSwitchRestarter(currentColor, goingToColor, "forward", target));
+        }
+        else
+        {
+            colorSwitcherHelper(currentColor, goingToColor, target);
+        }
+    }
+    //Restart sequence going in other direction
+    else if(lerpValue == 1)
+    {
+        colorSwitcherHelper(currentColor, goingToColor, target);
+    }
+    //Debug any fails
+    else
+    {
+        Debug.Log(lerpValue);
+    }
+}							
+							</code>
+						</pre>
+					</div>
+					
+					<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Check out other projects</button></a>
+				</div>		
+			</div>
+		</main>			
+	
+		<div class = "clearFloat"></div>
+		
+		<footer>
+			<div class = "internalContainer">
+				Created in 2018 
+				<br>
+				<br>
+				<a class = "navbarA" href="sitemap.html">Sitemap</a>			
+				<br>
+				<br>
+				Last Updated 9/30/2018			
+			</div>
+		</footer>
+		
+		<div class = "belowFoot"></div>
+	</body>		
+	
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+	
+</html>
