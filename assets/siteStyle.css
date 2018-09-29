@@ -22,6 +22,12 @@ footer{
 	background-color: #e7e7e7;
 }
 
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+}
+
 /*Classes*/
 .aboveNav{
 	background-color: #b11a21;
@@ -50,7 +56,7 @@ footer{
 .mainContent{
 	background-color: #f1f0ee;
 	width: 74%;
-	margin: 0 auto;
+	margin: -0.76em auto 0 auto;
 	padding: 0.5em;
 	min-height: 50em;
 	border-left: 3px solid;
@@ -101,6 +107,11 @@ footer{
 .bumper:nth-of-type(3){
 	padding-left: 7.5em;
 }
+
+.nonStackingBumper{
+	font-size: 1.5em;
+	padding-left: 2.5em;
+}
  
 .projectDisplay{
 	width: 75%;
@@ -139,6 +150,10 @@ footer{
 	cursor: pointer;
 }
 
+.projectDisplay .rectangularButton, .insetSitemapPageContainer .rectangularButton{
+	min-width: 12em;
+}
+
 .rectangularButton:hover{
 	border: #b11a21 solid;
 }
@@ -173,19 +188,59 @@ footer{
 
 .insetSitemapPageContainer{
 	width: 65%;
-	margin: 0 auto;
+	margin: 0.5em auto;
 	padding: 0.5em 0.5em 1em 0.5em;
 	background-color: #e0e0e0;
 	min-height: 3em;
 	border-radius: 10px;
 }
 
+.codeSample{
+	font: monospace;
+	margin: 0 auto;
+	padding: 1em;
+	min-height: 10em;
+	width: 90%;
+}
+
+.codeSampleContent{
+	margin: 1em auto;
+	padding: 0.5em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	border-radius: 10px;
+	width: 90%;
+}
+
+.externalReferenceExplainer{
+	padding-left: 3.8em;
+	line-height: 1.25;
+}
+
+.customh1{
+	font-size: 2em;
+}
+
+.redUnderline{
+	text-decoration: underline;
+	text-decoration-color: #b11a21;
+}
+
+.codeSampleHeader{
+	font-size: 3em;	
+	width: 100%;
+	text-align: center;
+	letter-spacing: 0.1em;
+}
+
 /*Images*/
 .headerLogo{
-	padding-left: 1em;
-	width: 4.5%;
-	height: 4.5%;
+	padding: 0.5em 0.5em 0.5em 0.75em;
+	border-radius: 0 0 1em 0;
+	width: 5%;
+	height: 5%;
 	float: left;
+	background-color: #e7e7e7;
+	border-left: solid #b11a21 0.5em;
 }
 
 .projectDisplayImage{
@@ -266,8 +321,8 @@ footer{
 /*Media Queries*/
 @media only screen and (max-width: 1400px){
 	.headerLogo{
-		width: 5%;
-		height: 5%;
+		width: 7%;
+		height: 7%;
 	}		
 	
 	.mainContent{
@@ -289,8 +344,8 @@ footer{
 
 @media only screen and (max-width: 1000px){
 	.headerLogo{
-		width: 7%;
-		height: 7%;
+		width: 9%;
+		height: 9%;
 	}	
 	
 	.mainContent{
@@ -323,8 +378,8 @@ footer{
 
 @media only screen and (max-width: 800px){
 	.headerLogo{
-		width: 9%;
-		height: 9%;
+		width: 11%;
+		height: 11%;
 	}		
 	
 	.mainContent{
@@ -335,6 +390,10 @@ footer{
 	.rectangularButton{
 		padding: 0.2em 1.25em;	
 		font-size: 22px;	
+	}
+
+	.navInternalContainer{
+		padding: 1.25em 1.5em;
 	}	
 	
 	.bumper{
@@ -463,8 +522,8 @@ footer{
 
 @media only screen and (max-width: 400px){
 	.headerLogo{
-		width: 15%;
-		height: 15%;
+		width: 18%;
+		height: 18%;
 	}
 	
 	.indexSelfIntro{
