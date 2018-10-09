@@ -67,38 +67,46 @@
 					</div>		
 					
 					<div class = "projectTextAreaContainer">
-						<h3> Tesla's Revenge </h3>
+						<h3> Tesla's Revenge </h3>					
 					
-						Active Work Dates : Fall 2015 - Spring 2017
-						<br>
-						Role(s): Programmer
-						<br>
-						Languages Used: C# (Unity Engine)
+						<p class = "projectHeaderParagraph">					
+							Active Work Dates : Fall 2015 - Spring 2017
+							<br>
+							Role(s): Programmer
+							<br>
+							Languages Used: C# (Unity Engine)
+							<br>
+							Platform: PC						
+						</p>
 						
-						<br>
-						<h4>Project Information:</h4>
-						&emsp;&emsp;My first experience with programming in Unity.  I joined the project about a 6 months into its development
-						and began to work on small sections like character movement.  At the time, the team was having problems with the 
-						player character phasing through the walls and other objects with 2D BoxCollider components.  I was able to devise a 
-						system of raycasts that prevented this problem from occuring.
-						<br><br>
-						&emsp;&emsp;Immediately after completing this problem, I was given the ability to make a minigame that would go into 
-						the main project.  This minigame took about two to three weeks to go from idea to actualized game.  After helping with 
-						some other miscellaneous parts of the project, I was again assigned another minigame to work on.  It was more
-						complicated than the last one, but it took only slightly longer to complete, about 3 weeks.  I must not that in both
-						of these minigames I only worked on the programming and design aspects.  I was aided in the art department by another
-						member of the team.
+						<div class = "projectTechnicalComponentsBumper">&emsp;</div>						
 						
-						<br>
 						<h4> Project Technical Components </h4>
 						
-						<ul>
-							<li> Player movement controls </li>
+						<ul>							
 							<li> Multiple minigames (each with a unique system) </li>
-							<li> NPC interaction </li>
 							<li> NPC dialog trees </li>
+							<li> NPC interaction </li>							
+							<li> Player movement controls </li>							
 						</ul>
-					</div>
+						
+						<button class = "rectangularButton" type="button" onclick = "ToggleProjectInformation(1)">Project Information</button>
+						
+						<div id = "projectInformation1">
+							<h4>Project Information:</h4>
+							&emsp;&emsp;My first experience with programming in Unity.  I joined the project about a 6 months into its development
+							and began to work on small sections like character movement.  At the time, the team was having problems with the 
+							player character phasing through the walls and other objects with 2D BoxCollider components.  I was able to devise a 
+							system of raycasts that prevented this problem from occuring.
+							<br><br>
+							&emsp;&emsp;Immediately after completing this problem, I was given the ability to make a minigame that would go into 
+							the main project.  This minigame took about two to three weeks to go from idea to actualized game.  After helping with 
+							some other miscellaneous parts of the project, I was again assigned another minigame to work on.  It was more
+							complicated than the last one, but it took only slightly longer to complete, about 3 weeks.  I must not that in both
+							of these minigames I only worked on the programming and design aspects.  I was aided in the art department by another
+							member of the team.		
+						</div>
+					</div>					
 					
 					<a class = "navbarA" href=""><button class = "rectangularButton" type="button">Download Coming Soon</button></a>
 					<br><br>
@@ -127,35 +135,43 @@
 					<div class = "projectTextAreaContainer">					
 						<h3> Build Everything </h3>
 						
-						Summer 2018
-						<br>
-						Role(s): Game Designer, Programmer
-						<br>
-						Languages Used: C# (Unity Engine)
+						<p class = "projectHeaderParagraph">						
+							Summer 2018
+							<br>
+							Role(s): Game Designer, Programmer
+							<br>
+							Languages Used: C# (Unity Engine)
+							<br>
+							Platform: PC
+						</p>
 						
-						<br>
-						<h4>Project Information:</h4>
-						&emsp;&emsp;A post-graduation project aimed at developing a voxel based building game.  While nowhere near being complete, the 
-						current version of the project allows the player to build guns, magazines, gun ammo, and structures to their liking.  The gun 
-						system allows the player to build guns that have different stastics (ammo caliber, dispersion, fire rate), while the ammo
-						system enables the player to build types of ammo that have different effects (armor penetration, damage, speed).  I plan to 
-						return to this project after SEIGE 2018 has concluded.
+						<div class = "projectTechnicalComponentsBumper">&emsp;</div>	
 						
-						&emsp;&emsp;Upon returning to this project, my current plans are, at the very least, to create a system that allows players to 
-						build vehicles in the same manner as guns and to finish out the structure building system.  It is a distant hope that I am
-						able to continue the game onto a sellable release version.
-						<br>
 						<h4> Project Technical Components </h4>
 						
 						<ul>
+							<li> Gun, Magazine, and Ammo creation systems </li>
+							<li> Bullet dispersion, penetration system </li>						
+							<li> Player inventory </li>
 							<li> JSON-based progress saving and loading </li>
 							<li> Player movement controls </li>
-							<li> Player inventory </li>
-							<li> Gun, Magazine, and Ammo creation systems </li>
-							<li> Bullet dispersion, penetration system </li>
 						</ul>
 						
-						<br>
+						<button class = "rectangularButton" type="button" onclick = "ToggleProjectInformation(2)">Project Information</button>
+						
+						<div id = "projectInformation2">
+							<h4>Project Information:</h4>
+							&emsp;&emsp;A post-graduation project aimed at developing a voxel based building game.  While nowhere near being complete, the 
+							current version of the project allows the player to build guns, magazines, gun ammo, and structures to their liking.  The gun 
+							system allows the player to build guns that have different stastics (ammo caliber, dispersion, fire rate), while the ammo
+							system enables the player to build types of ammo that have different effects (armor penetration, damage, speed).  I plan to 
+							return to this project after SEIGE 2018 has concluded.
+							
+							<br><br>
+							&emsp;&emsp;Upon returning to this project, my current plans are, at the very least, to create a system that allows players to 
+							build vehicles in the same manner as guns and to finish out the structure building system.  It is a distant hope that I am
+							able to continue the game onto a sellable release version.
+						</div>
 					</div>
 					
 					<a class = "navbarA" href=""><button class = "rectangularButton" type="button">Download Coming Soon</button></a>
@@ -187,27 +203,18 @@
 					<div class = "projectTextAreaContainer">					
 						<h3> Lost Souls' Arcade </h3>
 						
-						Active Work Dates : Fall 2017, August 2018 - Septempter 2018
-						<br>
-						Role(s): Game Designer, Programmer
-						<br>
-						Languages Used: C# (Unity Engine)
+						<p class = "projectHeaderParagraph">						
+							Active Work Dates : Fall 2017, August 2018 - Septempter 2018
+							<br>
+							Role(s): Game Designer, Programmer
+							<br>
+							Languages Used: C# (Unity Engine)
+							<br>
+							Platform: PC
+						</p>
 						
-						<br>
-						<h4>Project Information:</h4>
-						&emsp;&emsp;A small project designed and partially completed for one of the game design and development classes I took duing late 2017.
-						During the Fall 2017 semester, I worked with another student in the class to develop the project.  We decided upon a horror game based inside
-						a 1980s arcade.  The player becomes trapped and has to defeat minigames to eventually make their escape.  After each minigame, they have to
-						not only find the key to open the door to the next room, but do so while being chased by the monster.  In going through the game, they learn
-						that an entity has trapped children's souls there and plans to capture more.  It becomes up to the player to put and end to the monster and
-						his plans.
-						<br><br>
-						&emsp;&emsp;Due to the constraints of the class and the personal limits on the time we could put into the project, it was not fully completed 
-						for the Fall 2017 semester.  Despite this, our instructor was very pleased with how the project had come along and gave us the 
-						maximum score for the project.  After completing my degree, I chose to come back to the project by myself to finish the last pieces needed to
-						call it complete.
+						<div class = "projectTechnicalComponentsBumper">&emsp;</div>	
 						
-						<br>
 						<h4> Project Technical Components </h4>
 						
 						<ul>
@@ -217,7 +224,22 @@
 							<li> Player death / respawn</li>
 						</ul>
 						
-						<br>
+						<button class = "rectangularButton" type="button" onclick = "ToggleProjectInformation(3)">Project Information</button>
+						
+						<div id = "projectInformation3">
+							<h4>Project Information:</h4>
+							&emsp;&emsp;A small project designed and partially completed for one of the game design and development classes I took duing late 2017.
+							During the Fall 2017 semester, I worked with another student in the class to develop the project.  We decided upon a horror game based inside
+							a 1980s arcade.  The player becomes trapped and has to defeat minigames to eventually make their escape.  After each minigame, they have to
+							not only find the key to open the door to the next room, but do so while being chased by the monster.  In going through the game, they learn
+							that an entity has trapped children's souls there and plans to capture more.  It becomes up to the player to put and end to the monster and
+							his plans.
+							<br><br>
+							&emsp;&emsp;Due to the constraints of the class and the personal limits on the time we could put into the project, it was not fully completed 
+							for the Fall 2017 semester.  Despite this, our instructor was very pleased with how the project had come along and gave us the 
+							maximum score for the project.  After completing my degree, I chose to come back to the project by myself to finish the last pieces needed to
+							call it complete.
+						</div>
 					</div>
 					
 					<a class = "navbarA" href=""><button class = "rectangularButton" type="button">Download Coming Soon</button></a>
@@ -249,46 +271,53 @@
 					<div class = "projectTextAreaContainer">					
 						<h3> Western Wildlands: Journey to Oregon </h3>
 						
-						Active Work Dates : Spring 2018
-						<br>
-						Role(s): Game Designer, Programmer, Team Lead
-						<br>
-						Languages Used: C# (Unity Engine)
+						<p class = "projectHeaderParagraph">
+							Active Work Dates : Spring 2018
+							<br>
+							Role(s): Game Designer, Programmer, Team Lead
+							<br>
+							Languages Used: C# (Unity Engine)
+							<br>
+							Platform: PC
+						</p>
 						
-						<br>
-						<h4>Project Information:</h4>
-						&emsp;&emsp;This project came out of the class immediately after the one that Lost Souls' Arcade was created in.  Instead of taking 
-						place in a confined area, this one was set to be semi-open world where the player would advance through different levels as they
-						completed objectives.  The game was intended to be a sort of '3D Oregon Trail' where the player would go on a journey with 3 other
-						NPCs and a wagon.  
+						<div class = "projectTechnicalComponentsBumper">&emsp;</div>	
 						
-						<br><br>						
-						&emsp;&emsp;The player set as the party leader and with the job to get not only themselves but also as many of their NPCs as
-						possible to the end of the journey.  The game was planned to have 11 levels, each one harder than the previous.  The scenery
-						in each level would shift from the calm starting plains to the harsh and cold end-game mountains.  The player would be 
-						incentivised to prepare for the later stages as early as possible.  Resources would be plentiful at the beginnging of the game
-						and the player would have multiple oppertunities to gather them for trading.  This in turn would allow them to get uncraftable
-						items to help them in the late game and help their chances to succeed.
-						
-						<br><br>
-						&emsp;&emsp;The game is currently unfinished with only 2 of the 11 intended stages complete.  Some core mechanics such as NPC
-						interaction, NPC shops, and basic needs are partially implemented, while others such as foraging, weather effects, and event
-						spawning are wholly lacking from the game.  I currently do not know if I will return to the project due to the wide variety of
-						systems that would not only need to be created but also re-written, and assets that would need to be reworked to take the 
-						project further to the intended goal of sellable game.
-						<br>
 						<h4> Project Technical Components </h4>
 						
 						<ul>
-							<li> JSON-based progress saving and loading </li>
-							<li> Player movement controls </li>
 							<li> Player and container inventory system </li>
 							<li> Wagon, NPC interaction systems </li>
 							<li> NPC shop system </li>
 							<li> Wagon follow-path system </li>
+							<li> JSON-based progress saving and loading </li>
+							<li> Player movement controls </li>
 						</ul>
 						
-						<br>
+						<button class = "rectangularButton" type="button" onclick = "ToggleProjectInformation(4)">Project Information</button>
+						
+						<div id = "projectInformation4">
+							<h4>Project Information:</h4>
+							&emsp;&emsp;This project came out of the class immediately after the one that Lost Souls' Arcade was created in.  Instead of taking 
+							place in a confined area, this one was set to be semi-open world where the player would advance through different levels as they
+							completed objectives.  The game was intended to be a sort of '3D Oregon Trail' where the player would go on a journey with 3 other
+							NPCs and a wagon.  
+							
+							<br><br>						
+							&emsp;&emsp;The player set as the party leader and with the job to get not only themselves but also as many of their NPCs as
+							possible to the end of the journey.  The game was planned to have 11 levels, each one harder than the previous.  The scenery
+							in each level would shift from the calm starting plains to the harsh and cold end-game mountains.  The player would be 
+							incentivised to prepare for the later stages as early as possible.  Resources would be plentiful at the beginnging of the game
+							and the player would have multiple oppertunities to gather them for trading.  This in turn would allow them to get uncraftable
+							items to help them in the late game and help their chances to succeed.
+							
+							<br><br>
+							&emsp;&emsp;The game is currently unfinished with only 2 of the 11 intended stages complete.  Some core mechanics such as NPC
+							interaction, NPC shops, and basic needs are partially implemented, while others such as foraging, weather effects, and event
+							spawning are wholly lacking from the game.  I currently do not know if I will return to the project due to the wide variety of
+							systems that would not only need to be created but also re-written, and assets that would need to be reworked to take the 
+							project further to the intended goal of sellable game.
+						</div>
 					</div>
 					
 					<a class = "navbarA" href=""><button class = "rectangularButton" type="button">Download Coming Soon</button></a>
@@ -322,25 +351,18 @@
 					<div class = "projectTextAreaContainer">					
 						<h3> Macon Justice Website </h3>
 						
-						Active Work Dates : 2/20/2018 - 4/18/2018
-						<br>
-						Role(s): Programmer
-						<br>
-						Languages Used: HTML, CSS, PHP
+						<p class = "projectHeaderParagraph">						
+							Active Work Dates : 2/20/2018 - 4/18/2018
+							<br>
+							Role(s): Programmer
+							<br>
+							Languages Used: HTML, CSS, PHP
+							<br>
+							Platform: Web
+						</p>
 						
-						<br>
-						<h4>Project Information:</h4>
-						&emsp;&emsp;This project was started and completed for my Senior Capstone in Spring 2018.  Our group of 
-						10 students, including myself, were instructed to make a functional website for client Bill Adams.  We 
-						gathered all of Mr. Adams requirements and set to designing a site to fit his needs.  During the 
-						initial phases, we dove into color theory, page layout optimization, and multiple
+						<div class = "projectTechnicalComponentsBumper">&emsp;</div>	
 						
-						<br><br>
-						&emsp;&emsp;Over the course of the semester, we met with him and his colleagues multiple times.  
-						At each of these meetings, they were impressed with the work that we had performed and only had requests for minor additions
-						to the site.
-						
-						<br>
 						<h4> Project Technical Components </h4>
 						
 						<ul>
@@ -350,11 +372,25 @@
 							<li> Email sending system (To Admins, Lawyers, or Clients) </li>
 						</ul>
 						
-						Please note that following modifications had to be made to the completed project for display here:
-						<br><br>
-						* PHP includes were removed and the included code was included on each page<br>
-						* Server-side functionality was removed
-						<br><br><br>
+						<button class = "rectangularButton" type="button" onclick = "ToggleProjectInformation(5)">Project Information</button>
+						
+						<div id = "projectInformation5">	
+							Please note that following modifications had to be made to the completed project for display here:
+							<br><br>
+							* PHP includes were removed and the included code was included on each page<br>
+							* Server-side functionality was removed
+							
+							<h4>Project Information:</h4>
+							&emsp;&emsp;This project was started and completed for my Senior Capstone in Spring 2018.  Our group of 
+							10 students, including myself, were instructed to make a functional website for client Bill Adams.  We 
+							gathered all of Mr. Adams requirements and set to designing a site to fit his needs.  During the 
+							initial phases, we dove into color theory, page layout optimization, and multiple
+							
+							<br><br>
+							&emsp;&emsp;Over the course of the semester, we met with him and his colleagues multiple times.  
+							At each of these meetings, they were impressed with the work that we had performed and only had requests for minor additions
+							to the site.
+						</div>
 					</div>
 					
 					<a class = "navbarA" href="assets/CapstoneSiteDemo/index.html"><button class = "rectangularButton" type="button">Visit Completed Site</button></a>
@@ -384,34 +420,42 @@
 					<div class = "projectTextAreaContainer">					
 						<h3> Ping </h3>
 						
-						Active Work Dates : Summer 2017, July 2018 - Ongoing
-						<br>
-						Role(s): Game Designer, Programmer
-						<br>
-						Languages Used: C# (Unity Engine)
+						<p class = "projectHeaderParagraph">
+							Active Work Dates : Summer 2017, July 2018 - Ongoing
+							<br>
+							Role(s): Game Designer, Programmer
+							<br>
+							Languages Used: C# (Unity Engine)
+							<br>
+							Platform: Mobile
+						</p>
 						
-						<br>
-						<h4>Project Information:</h4>
-						&emsp;&emsp;A small personal project aimed at refamiliarizing myself with Unity for an upcoming class at the time.  
-						The concept of the game is that the player has to navigate a maze and find the exit.  A normally simple task, but
-						unfortunately the player is 'blind' and must find the way using sound pings (a way to see what is in the 
-						immediate area around them). The project was intended for a mobile device though the appropriate touch controls
-						were not implemented.
+						<div class = "projectTechnicalComponentsBumper">&emsp;</div>	
 						
-						&emsp;&emsp;I have recently picked this project up in the hopes of developing it into a full mobile game with the
-						help of level designer, Scott Williams.  Currently, Mr. Williams is working on developing levels while I work to
-						implement interesting mechanics and further develop  the existing systems to support the game's future.
-						
-						<br>
 						<h4> Project Technical Components </h4>
 						
 						<ul>
-							<li> JSON-based progress saving and loading </li>
-							<li> Player movement controls </li>
+							<li> JSON-based progress saving and loading </li>							
 							<li> Local area object highlighting </li>
+							<li> Player movement controls </li>
 							<li> Hazards </li>
 							<li> Player death / respawn</li>
 						</ul>
+						
+						<button class = "rectangularButton" type="button" onclick = "ToggleProjectInformation(6)">Project Information</button>
+						
+						<div id = "projectInformation6">						
+							<h4>Project Information:</h4>
+							&emsp;&emsp;A small personal project aimed at refamiliarizing myself with Unity for an upcoming class at the time.  
+							The concept of the game is that the player has to navigate a maze and find the exit.  A normally simple task, but
+							unfortunately the player is 'blind' and must find the way using sound pings (a way to see what is in the 
+							immediate area around them). The project was intended for a mobile device though the appropriate touch controls
+							were not implemented.
+							
+							&emsp;&emsp;I have recently picked this project up in the hopes of developing it into a full mobile game with the
+							help of level designer, Scott Williams.  Currently, Mr. Williams is working on developing levels while I work to
+							implement interesting mechanics and further develop  the existing systems to support the game's future.						
+						</div>
 					</div>
 					
 					<a class = "navbarA" href=""><button class = "rectangularButton" type="button">Download Coming Soon</button></a>
@@ -509,4 +553,30 @@
 			});
 		});
 	</script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			ToggleProjectInformation(1);
+			ToggleProjectInformation(2);
+			ToggleProjectInformation(3);
+			ToggleProjectInformation(4);
+			ToggleProjectInformation(5);
+			ToggleProjectInformation(6);
+		});
+		
+		function ToggleProjectInformation(number){
+			var toggleSection = document.getElementById("projectInformation" + number);		
+			
+			if(toggleSection.style.display === "none"){
+				toggleSection.style.display = "block";
+			}
+			else{
+				toggleSection.style.display = "none";
+			}			
+		}		
+	</script>
 </html>
+
+
+
+
