@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Commander Martin's Portfolio - Macon Justice Website Code Samples</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--[if lt EI 9]>
+		<script src= "http://html5shim.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+		
+		<link rel = "stylesheet" type = "text/css" href = "assets/siteStyle.css">
+		<link rel = "stylesheet" type = "text/css" href = "assets/slick/slick.css"/>		
+		
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-32x32.png" sizes = "32x32" />
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-16x16.png" sizes = "16x16" />
+	</head>
+	
+	<div class = "aboveNav"></div>	
+	
+	<nav>	
+		<div class = "logo">
+			<img class = "headerLogo" src = "assets/Images/Logo.png" alt = "Commanding Games Studios Logo">
+		</div>
+	
+		<div class = "navInternalContainer">
+			<a class = "navbarA" href="index.html"><button class = "rectangularButton" type="button">Home</button></a>
+			
+			<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Projects</button></a>
+				
+			<a class = "navbarA" href="https://linkedin.com/in/joshua-holland-85791b134/"><button class = "rectangularButton" type="button">LinkedIn</button></a>
+		</div>
+	</nav>
+	
+	<div class = "clearFloat"></div>
+
+	<body>
+		<!-- Main Content section -->
+		<main>
+			<div class = "leftContent">
+				
+			</div>
+			
+			<div class = "mainContent">
+				<div class = "codeSampleContent">
+					<div class = "codeSampleHeader">					
+						<span class = "textColorRed customh1">B</span><span class = "redUnderline">uild</span>
+						<span class = "textColorRed customh1">E</span><span class = "redUnderline">verythin</span>g
+					</div>		
+
+					<h2> Code Sample 1 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;Determine gun statistics based on certain block types and their arrangement</span>
+					<br><br>
+					
+					<p class = "externalReferenceExplainer">
+						External References:
+						<br><br>
+						ObjectStats - Script to manage core object values such as weight, and block count					
+					</p>
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+public void AssessStats(int modifier = 0)
+{
+    //Core Object stats
+    if (this.gameObject.GetComponent&lt;ObjectStats&gt;())
+    {
+        this.gameObject.GetComponent&lt;ObjectStats&gt;().GetWeight();
+    }
+
+    //Specific stats
+    RaycastHit[] hits;
+
+    barrelLength = 0;
+    magazineSize = 0;
+    currentBreechLength = startingBreechLength;
+
+    //Barrel Length ---------------------------------------------------------------------------
+    Vector3 startPosition = this.transform.position;
+    Ray ray = new Ray(startPosition, this.transform.forward);
+
+    hits = Physics.RaycastAll(ray, maxBarrelLength + 5f);
+
+    if (hits.Length &gt; 0)
+    {
+        for (int a = 0; a &lt; hits.Length; a++)
+        {
+            if (hits[a].collider.gameObject.name.Contains("Barrel"))
+            {
+                barrelLength++;                    
+            }
+            //Check for breech extenders
+            else if (hits[a].collider.gameObject.name.Contains("BreechExtender"))
+            {
+                currentBreechLength++;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        //Debug.DrawRay(checkPosition, this.transform.forward, Color.yellow, 10f);
+    }
+
+    //Update bullet spawn point
+    this.transform.GetChild(0).gameObject.transform.localPosition = new Vector3(0f, 0f, 5f + barrelLength);
+
+    currentBreechLength /= 2;
+    currentBreechLength++;
+
+    //Cap breech extenders
+    if (currentBreechLength &gt; 5)
+    {
+        currentBreechLength = 5;
+    }
+
+    [Code section excluded]		
+
+    //Object mass
+    currentMass = 0;
+
+    this.GetComponent&lt;ObjectStats&gt;().GetWeight();
+    currentMass = this.GetComponent&lt;ObjectStats&gt;().totalObjectWeight;        
+
+    if (SceneManager.GetActiveScene().name == "Designer")
+    {
+        //Display stats un UI ---------------------------------------------------------------------
+        GameObject.FindWithTag("GameController").GetComponent&lt;DesignerUIController&gt;().massIndicator.transform.GetChild(1).GetComponent&lt;Text&gt;().text =
+        (maximumMass - currentMass).ToString("#0.##");
+
+        GameObject UITextLocation =
+            GameObject.FindWithTag("GameController").GetComponent&lt;DesignerUIController&gt;().
+            ObjectInfoUI.transform.Find("Gun Stats").transform.GetChild(1).gameObject;
+
+        UITextLocation.transform.GetChild(0).GetComponent&lt;Text&gt;().text = this.gameObject.name.Replace("(Clone)", "");
+        UITextLocation.transform.GetChild(1).GetComponent&lt;Text&gt;().text = barrelDiameter + " mm";
+
+        if (barrelLength == 0)
+        {
+            UITextLocation.transform.GetChild(2).GetComponent&lt;Text&gt;().text = "Missing Barrel block!";
+        }
+        else
+        {
+            UITextLocation.transform.GetChild(2).GetComponent&lt;Text&gt;().text = currentDispersionVal.ToString();
+        }
+
+        UITextLocation.transform.GetChild(3).GetComponent&lt;Text&gt;().text = currentCycleTime.ToString();
+
+        if (magazineSize == 0)
+        {
+            UITextLocation.transform.GetChild(4).GetComponent&lt;Text&gt;().text = "Missing Magazine Type Block!";
+        }
+        else
+        {
+            UITextLocation.transform.GetChild(4).GetComponent&lt;Text&gt;().text = magazineSize.ToString();
+        }
+    }
+}
+							</code>
+						</pre>
+					</div>	
+					
+					<h2> Code Sample 2 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;Recieve button presses for inventory items and perform item transfer</span>
+					<br><br>					
+					
+					<p class = "externalReferenceExplainer">
+						External References:
+						<br><br>
+						BlockAtPositionInInventory - Boolean returning function to check if the selected inventory slot has a placeable block<br>
+						AddToFirstOpenSlot - Function to add a new inventory item to the first available slot in the inventory<br>
+						ChangeInventoryObjectParent - Function to change the position of a GameObject-based item in the inventory<br>
+						DetermineSpriteToFill - Update the Inventory UI with the item's sprite
+					</p>
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+public void InventoryButtonReciever(GameObject pressedButton, string clickAction)
+{
+    //No slots clicked and left click
+    if (sendingSlot == null && clickAction == "left")
+    {
+        //Check if item is at that position in the inventory
+        if (BlockAtPositionInInventory(pressedButton) == true)
+        {
+            //Debug.Log("started sequence");
+            sendingSlot = pressedButton;
+            isMoving = true;
+
+            //Override sorting order
+            sendingSlot.transform.GetChild(0).GetComponent&lt;Canvas&gt;().overrideSorting = true;
+        }
+    }
+    //Stack splitting, item removal
+    else if (sendingSlot == null && clickAction == "right")
+    {
+        if(pressedButton != null)
+        {
+            //Stack splitting
+            if (false)
+            {
+                //Never
+            }
+            else if (GameObjectAtPositionInInventory(pressedButton).GetComponent&lt;GunController&gt;())
+            {
+                if(GameObjectAtPositionInInventory(pressedButton).GetComponent&lt;GunController&gt;().OurExternalAmmoSupply != null)
+                {
+                    //Debug.Log("Ejected external ammo supply");
+                    AddToFirstOpenSlot(GameObjectAtPositionInInventory(pressedButton).GetComponent<GunController>().OurExternalAmmoSupply, 1);
+                    GameObjectAtPositionInInventory(pressedButton).GetComponent&lt;GunController&gt;().OurExternalAmmoSupply = null;
+                }
+            }
+        }
+    }
+    //If the sending slot has been defined
+    else if (sendingSlot != null)
+    {
+        if (pressedButton != null)
+        {
+            if (BlockAtPositionInInventory(pressedButton) == false || sendingSlot == pressedButton)
+            {
+                //Debug.Log("ended sequence");
+                //Revert sorting order
+                sendingSlot.transform.GetChild(0).GetComponent&lt;Canvas>().overrideSorting = false;
+
+                //Reset old slot
+                isMoving = false;
+                sendingSlot.transform.GetChild(0).transform.localPosition = Vector3.zero;
+                sendingSlot.transform.GetChild(0).GetComponent&lt;Image>().sprite = null;
+
+                //Parent to new slot
+                if (sendingSlot.transform.parent.name == "Hand Inventory")
+                {
+                    if (pressedButton.transform.parent.name == "Hand Inventory")
+                    {
+                        ChangeInventoryObjectParent("hand", "hand", sendingSlot.transform.GetSiblingIndex(), pressedButton.transform.GetSiblingIndex());
+                    }
+                    else if (pressedButton.transform.parent.name == "Main Inventory Grid")
+                    {
+                        ChangeInventoryObjectParent("hand", "main", sendingSlot.transform.GetSiblingIndex(), pressedButton.transform.GetSiblingIndex());
+                    }
+                }
+                else if (sendingSlot.transform.parent.name == "Main Inventory Grid")
+                {
+                    if (pressedButton.transform.parent.name == "Hand Inventory")
+                    {
+                        ChangeInventoryObjectParent("main", "hand", sendingSlot.transform.GetSiblingIndex(), pressedButton.transform.GetSiblingIndex());
+                    }
+                    else if (pressedButton.transform.parent.name == "Main Inventory Grid")
+                    {
+                        ChangeInventoryObjectParent("main", "main", sendingSlot.transform.GetSiblingIndex(), pressedButton.transform.GetSiblingIndex());
+                    }
+                }
+
+                //Redo lists
+                RedoInventoryLists();
+
+                //Insert new sprite at new location
+                if (pressedButton.transform.parent.name == "Hand Inventory")
+                {
+                    DetermineSpriteToFill("hand", pressedButton.transform.GetSiblingIndex());
+                }
+                else if (pressedButton.transform.parent.name == "Main Inventory Grid")
+                {
+                    DetermineSpriteToFill("main", pressedButton.transform.GetSiblingIndex());
+                }
+
+                //Remove previous reference to reset object moving
+                sendingSlot = null;
+            }
+				
+[Code section excluded] 
+        }
+    }        
+}
+							</code>
+						</pre>
+					</div>
+					
+					<h2> Code Sample 3 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;Update function for block placement</span>
+					<br><br>	
+
+					<p class = "externalReferenceExplainer">
+						External References:
+						<br><br>
+						ObjectHit - Script to determine the location of a hit on another block using normals<br>
+						GhostBlockPlace - Place a mostly-transparent version of the block at the location of a hit<br>
+						GhostBlockRealize - Turns a ghost block into the normal version of the block
+					</p>					
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+void Update () 
+{
+    //Place ghost blocks
+    if(DC.gameObject.GetComponent&lt;DesignerUIController&gt;().selectionUIisOpen == false)
+    {            
+        Vector3 centerOfScreen = new Vector3(Screen.width / 2, Screen.height / 2, 0f);
+        Ray ray = this.GetComponent&lt;Camera&gt;().ScreenPointToRay(centerOfScreen);
+
+        if (Physics.Raycast(ray, out hit, raycastDistance))
+        {
+            //Place selected block
+            if (blockToPlace != null)
+            {
+                string faceHit = this.GetComponent&lt;ObjectHit&gt;().GetHitFace(hit).ToString();
+                Vector3 blockSize = hit.transform.gameObject.GetComponent&lt;BoxCollider&gt;().bounds.size;
+
+                if (faceHit == "Up")
+                {
+                    //Debug.Log("U");
+                    GhostBlockPlace(hit.transform.gameObject, "U");
+                }
+                else if (faceHit == "Down")
+                {
+                    //Debug.Log("D");
+                    GhostBlockPlace(hit.transform.gameObject, "D");
+                }
+                else if (faceHit == "East")
+                {
+                    //Debug.Log("E");
+                    GhostBlockPlace(hit.transform.gameObject, "E");
+                }
+                else if (faceHit == "West")
+                {
+                    //Debug.Log("W");
+                    GhostBlockPlace(hit.transform.gameObject, "W");
+                }
+                else if (faceHit == "North")
+                {
+                    //Debug.Log("N");
+                    GhostBlockPlace(hit.transform.gameObject, "N");
+                }
+                else if (faceHit == "South")
+                {
+                    //Debug.Log("S");
+                    GhostBlockPlace(hit.transform.gameObject, "S");
+                }
+                else
+                {
+                    Debug.Log("An error occured: " + faceHit);
+                }
+            }                
+        }
+    }
+
+    //Realize ghost block
+    if (Input.GetKeyDown(KeyCode.Mouse0) && currentGhostBlock != null && DC.gameObject.GetComponent&lt;DesignerUIController&gt;().selectionUIisOpen == false)
+    {
+        if (Physics.OverlapBox(
+            currentGhostBlock.transform.gameObject.GetComponent&lt;BoxCollider&gt;().bounds.center,
+            currentGhostBlock.transform.gameObject.transform.localScale / 2,
+            Quaternion.identity).Length &lt;= 3)
+        {
+            GhostBlockRealize();
+            this.GetComponent&lt;BlockRotate&gt;().facingDirection = 0;
+        }
+        else
+        {
+            Debug.Log(Physics.OverlapBox(
+            currentGhostBlock.transform.gameObject.GetComponent&lt;BoxCollider&gt;).bounds.center,
+            currentGhostBlock.transform.gameObject.transform.localScale,
+            Quaternion.identity).Length);
+        }
+    }
+    //Remove block
+    else if (Input.GetKeyDown(KeyCode.Mouse1) && DC.gameObject.GetComponent&lt;DesignerUIController&gt;().selectionUIisOpen == false)
+    {
+        Vector3 centerOfScreen = new Vector3(Screen.width / 2, Screen.height / 2, 0f);
+        Ray ray = this.GetComponent&lt;Camera&gt;().ScreenPointToRay(centerOfScreen);
+
+        if (Physics.Raycast(ray, out hit, raycastDistance))
+        {
+            if (hit.collider.transform.gameObject.GetComponent&lt;BlockMaterialHolder&gt;())
+            {
+                DestroyImmediate(hit.collider.gameObject);
+
+                //Update object due to removal
+                if (DC.coreParent != null)
+                {
+                    if (DC.coreParent.GetComponent&lt;GunController&gt;())
+                    {
+                        DC.coreParent.GetComponent&lt;GunController&gt;().AssessStats();
+                    }
+                    else if (DC.coreParent.GetComponent&lt;MagazineController&gt;())
+                    {
+                        DC.coreParent.GetComponent&lt;MagazineController&gt;().AssessStats();
+                    }
+                    else if (DC.coreParent.GetComponent&lt;DrumController&gt;())
+                    {
+                        DC.coreParent.GetComponent&lt;DrumController&gt;().AssessStats();
+                    }
+                }
+            }
+        }
+    }
+}
+							</code>
+						</pre>
+					</div>
+					
+					<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Check out other projects</button></a>
+				</div>
+		</main>			
+	
+		<div class = "clearFloat"></div>
+		
+		<footer>
+			<div class = "internalContainer">
+				Created in 2018 
+				<br>
+				<br>
+				<a class = "navbarA" href="sitemap.html">Sitemap</a>			
+				<br>
+				<br>
+				Last Updated 9/30/2018			
+			</div>
+		</footer>
+		
+		<div class = "belowFoot"></div>
+	</body>		
+	
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+	
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Middle Georgia Justice</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--[if lt EI 9]>
+	<script src= "http://html5shim.googlecode.com/svn/trunk/html5.js">
+	</script>
+	<![endif]-->
+	
+	<link rel="icon" href="images/hammerFavicon.ico" type="image/gif">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href = "css/custom/siteStyle.css">
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	
+			<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
+<body>
+	<!-- Header include -->
+	<header>
+		<div class="homePage">
+			<a href="index.php"><img src="images/Header.png" alt="Middle Georgia Justice" id="mainLogo" /></a>
+			<img src="images/newLogo.png" alt="Logo" id="sideLogo" />
+		</div>
+	</header>
+	
+	<!-- Navigation include -->
+	<style>
+		@media only screen and (min-width: 900px){
+			.dropbtn{
+				display: none;
+			}
+		}
+		@media only screen and (max-width: 900px){
+			button{
+				border-radius: .5em;
+			}
+			
+			.dropbtn {
+				background-color: #3498DB;
+				color: white;
+				padding: 15px 30px;
+				font-size: 16px;
+				border: none;
+				cursor: pointer;
+			}
+			
+			.dropbtn:hover, .dropbtn:focus {
+				background-color: #2980B9;
+			}
+			
+			.dropdown {
+				position: relative;
+				display: inline-block;
+				margin: 0 auto;
+			}
+			
+			.dropdown-content {
+				display: none;
+				background-color: #f1f1f1;
+				min-width: 160px;
+				overflow: auto;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+			
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+			
+			.dropdown a:hover {background-color: #ddd}
+			
+			.show {display:block;}
+		}
+	</style>
+
+	<div class = "outerNavbar">
+		<nav class = "navbar">
+			<div class="dropdown">
+				<button onclick="myFunction()" class="dropbtn">Menu</button>
+				<div id="myDropdown" class="dropdown-content">
+					<a class = "navbarA" href="index.html">Home</a>
+						
+					<a class = "navbarA" href="donate.html">Donations</a>
+						
+					<a class = "navbarA" href="events.html">Events</a>
+						
+					<a class = "navbarA" href="lawyer_incubator.html">Incubator Program</a>
+							
+					<a class = "navbarA" href="aboutus.html">About Us</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<script>
+		function myFunction() {
+			document.getElementById("myDropdown").classList.toggle("show");
+		}
+
+		// Close the dropdown menu if the user clicks outside of it
+		window.onclick = function(event) {
+		  if (!event.target.matches('.dropbtn')) {
+
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+			  var openDropdown = dropdowns[i];
+			  if (openDropdown.classList.contains('show')) {
+				openDropdown.classList.remove('show');
+			  }
+			}
+		  }
+		}
+	</script>
+
+	<!-- Main Content section -->
+	<main role="main" class="container">
+	
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				
+				<p>Is this information correct?</p>
+				
+				<div class="myButton">
+					<input type="submit" value="Yes" class="btnSize"/>
+					<input type="button" value="No" class="btnSize"/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="jumbotron">
+			
+		<!-- Paragraph for text if needed ---------------------------------------------------------------- -->			
+			<p class="lead">
+				
+			<h2>Enter Lawyer Credentials</h2>
+			<br>
+			
+			<!-- Question submission form ---------------------------------------------------------------- -->
+			<form name="" method="" action="">
+				
+				<!-- Client name ------------------------------------------------------------------------- -->					
+				<div class = "fiftypercentofwidth">
+				
+				<!--- First Name ------------->
+				<div class="form-group">
+					<div class="col">
+						<label for="fN">First Name</label>
+							<input type="text" class="form-control" placeholder="First Name" name="lawyerFName" required>
+					</div>
+				</div>
+				
+				<!--Last Name -------------->
+				<div class="form-group">
+					<div class="col">
+						<label for="lN">Last Name</label>
+							<input type="text" class="form-control" placeholder="Last Name" name="lawyerLName" required>
+					</div>
+				</div>
+						
+				<!-- Email -->
+				<div class="form-group">
+					<div class="col">
+						<label for="eM">Email</label>
+							<input type="text" class="form-control" placeholder="Email" name="lawyerEMail" required>
+					</div>
+				</div>
+				<br>
+						
+						
+				<!-- Lawyer Phone Number -->
+				<div class="form-group">
+					<div class="col">
+						<label for="lawyerPhoneNum">Phone Number</label>
+							<input type="text" class="form-control" placeholder="Phone number" name="lawyerPhoneNum" required>
+					</div>
+				</div>
+				<br><br>
+						
+				<!--Client Question Topic----------------------------------------------------------------------->
+				<h5>Select Area of Expertise</h5>
+				<div class="form-group form-control">
+					<select id="qCategory" required>
+						<option selected></option>
+						<option value="Family Law">Family Law</option>
+						<option value="Housing Issues">Housing Issues</option>
+						<option value="Landlord/Tennant">Landlord/Tennant</option>
+						<option value="Social Security & Other Benefits">Social Security & Other Benefits</option>
+						<option value="Consumer Law">Consumer Law</option>
+						<option value="Education Law">Education Law</option>
+						<option value="Elder Law">Elder Law</option>
+						<option value="Immigration">Immigration</option>
+						<option value="Veterans">Veterans</option>
+						<option value="Post-conviction Issues">Post-Conviction Issues</option>
+						<option value="Driver&#39s License/Id Issues">Driver&#39s License/ ID Issues</option>
+						<option value="Criminal Law">Criminal Law</option>
+						<option value="Probate Matters">Probate Matters</option>
+						<option value="Estate Planning">Estate Planning</option>
+						<option value="Small Business Development">Small Business Development</option>
+					</select>
+				<br><br>
+											
+				<!-- Client Question Details text field ------------------------------------------------------ -->
+					<h5>Additional Comments:</h5>
+					<div class="form-group">
+						<textarea class="form-control" rows = "6" cols = "65" name="additionalComments" required></textarea>
+					</div>
+						
+					<br>	
+				</div>
+				<br>
+				 <div class="g-recaptcha" data-sitekey="6Le2aFIUAAAAALlPngk0FQDY6YlvMixeREhwkdtg"></div>
+				<div>
+					<button type="submit" class="button button-block">Submit</button>
+				</div>
+			</form>	
+		</p>
+	</main>
+	
+	<!-- Footer include -->
+	<footer>	  
+		<!-- Left Column Div --------------------------------------------------------------------------------- -->
+		<div class = "footerBox leftFooterBox">		
+			<h5>Contact Us</h5>
+				
+			<div class = "internalFooterBox">					
+				<ul>						
+					<li>&emsp;</li>
+					<li><a href="lawyerPortal.html">Lawyer Portal</a></li>
+					<li>&emsp;</li>
+					<li><a href="askaquestion.html">Ask A Question</a></li>
+				</ul>
+			</div>
+		</div>
+			
+		<!-- Mid Column Div ---------------------------------------------------------------------------------- -->
+		<div class = "footerBox midFooterBox">		
+			<!--<h5>Sponsors</h5>
+						
+			<div class="internalFooterBox">
+				<ul>
+					<br />
+					<li>Middle Georgia Access To Justice Council</li>
+					<li>& </li>
+					<li>Community Foundation of Central Georgia, Inc.</li>
+					<li><a href="https://cfcga.org/fund/middle-georgia-access-justice-inc-fund/"><img src="images/communityFoundation_Logo.png" id="communityLogo"; /></a></li>
+				</ul>
+			</div>				  
+			<br>------------------------->
+		</div>
+				
+		<!-- Right Column Div -------------------------------------------------------------------------------- -->
+		<div class = "footerBox">
+				
+			<h5>About</h5>
+				
+			<div class = "internalFooterBox">					
+				<ul>
+					<li>&emsp;</li>
+					<li><a href="aboutus.html">About Us</a></li>
+					<li>&emsp;</li>
+					<li><a href="sitemap.html">Sitemap</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<br>
+		<br>
+	</footer>
+	
+	<!-- Script for modal -->
+	
+	<script>
+	// Get the modal
+	var modal = document.getElementById('myModal');
+	
+	// Get the button that opens the modal
+	var btn = document.getElementById("subModal");
+	
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+	
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {
+	    modal.style.display = "block";
+	}
+	
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	    modal.style.display = "none";
+	}
+	
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
+	}
+	</script>
+</body>
+
+</html>

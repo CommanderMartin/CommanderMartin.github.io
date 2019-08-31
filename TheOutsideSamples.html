@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Joshua Holland's Portfolio - Index</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--[if lt EI 9]>
+		<script src= "http://html5shim.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+		
+		<link rel = "stylesheet" type = "text/css" href = "assets/siteStyle.css">
+		
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-32x32.png" sizes = "32x32" />
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-16x16.png" sizes = "16x16" />
+	</head>
+	
+	<body>	
+		<!-- Main Content section -->
+		<main>
+			<div class = "mainBackgroundImage">
+				<div class = "aboveNav">
+		
+				</div>
+				
+				<nav>	
+					<a class = "navbarA" href="index.html"><button class = "rectangularButton" type="button">Home</button></a>
+			
+					<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Projects</button></a>
+					
+					<a class = "navbarA" href="https://commandermartin.itch.io/"><button class = "rectangularButton" type="button">Itch.io</button></a>
+						
+					<a class = "navbarA" href="https://linkedin.com/in/joshuadaleholland/"><button class = "rectangularButton" type="button">LinkedIn</button></a>
+					
+					<a class = "navbarA" href="resume.html"><button class = "rectangularButton" type="button">My Resume</button></a>
+				</nav>
+				
+				<div class = "mainContentArea">				
+					<div class = "topInternalContentArea">
+						
+					</div>
+					
+					<div class = "midInternalContentArea">
+						<div class = "codeSampleHeader">					
+							<span class = "redText customh1">T</span><span class = "redUnderline customh2">he</span>
+							<span class = "redText customh1">O</span><span class = "redUnderline customh2">utside</span>
+						</div>		
+
+						<h2> Code Sample 1 </h2>
+						
+						Code Function:
+						<br>
+						&emsp;&emsp;Process and listen for various control inputs or game events and manage the timer clock Gameobject
+						<br><br>
+
+						<p class = "externalReferenceExplainer">
+							External References:
+							<br><br>
+							Player - The player GameObject<br>
+						</p>
+						
+						<div class = "codeSample">
+							<pre class = "prettyprint linenums = true">
+								<code>
+void Update()
+    {
+        //Interaction
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+
+            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                if (hit.collider.tag == "EndDay")
+                {
+                    EndDay(hit.collider.gameObject, "You chose to end the day early and went to bed.");
+                }
+                else if(hit.collider.tag == "Note")
+                {
+                    if(hit.collider.GetComponent&lt;GameObjectNoteAssociation&gt;().AssociatedNoteUI != null)
+                    {
+                        Player.GetComponent&lt;PlayerController>().canMove = false;
+                        canCountdown = false;
+                        hit.collider.GetComponent&lt;GameObjectNoteAssociation&gt;().AssociatedNoteUI.SetActive(true);
+
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.visible = true;
+
+                        GameObject btnReference = hit.collider.GetComponent&lt;GameObjectNoteAssociation>().AssociatedNoteUI.transform.GetChild(3).gameObject;
+
+                        //Setup close button
+                        btnReference.GetComponent&lt;Button&gt;().onClick.RemoveAllListeners();
+                        btnReference.GetComponent&lt;Button&gt;().onClick.AddListener(
+                            delegate {
+                                hit.collider.GetComponent&lt;GameObjectNoteAssociation&gt;().AssociatedNoteUI.gameObject.SetActive(false);
+                                Player.GetComponent&lt;PlayerController&gt;().canMove = true;
+                                canCountdown = true;
+
+                                Cursor.lockState = CursorLockMode.Locked;
+                                Cursor.visible = false;
+                            });
+                    }
+                }
+                else if(hit.collider.tag == "Keypad" && destructTime > 0)
+                {
+                    OpenKeypad();
+
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+                else if(hit.collider.tag == "OpenBunkerDoor")
+                {
+                    if(gameDay != 4)
+                    {
+                        KeypadGameObject.GetComponent&lt;AudioSource&gt;().Stop();
+                        KeypadGameObject.GetComponent&lt;AudioSource&gt;().loop = false;
+                        PlayDeathSound("disease");
+                        GameOver("You chose to go outside without any protection.  The pathogen did not go easy on you.");
+                    }
+                }
+            }
+        }
+
+        //Pausing
+        if (Input.GetKeyDown(KeyCode.Escape) && hasDied == false)
+        {
+            TogglePauseMenu();
+        }
+
+        //Normal timer
+        if(gameDay >= 1 && gameDay &lt;= 3)
+        {
+            if (canCountdown && levelTime &gt; 0)
+            {
+                levelTime -= Time.deltaTime;
+                string hours = Mathf.Floor(levelTime / 3600).ToString("00");
+                string minutes = Mathf.Floor((levelTime / 60) % 60).ToString("00");
+                string seconds = (levelTime % 60).ToString("00");
+                string milliseconds = ((levelTime * 100) % 100).ToString("00");
+                Clock.transform.GetChild(0).GetChild(1).GetComponent&lt;Text&gt;().text = hours + " : " + minutes + " : " + seconds + " : " + milliseconds;
+
+                if (previousNormalMinute != int.Parse(minutes))
+                {
+                    previousNormalMinute = int.Parse(minutes);
+                    Clock.transform.GetChild(0).GetChild(1).GetComponent&lt;AudioSource&gt;().Play();
+                }
+
+                if(levelTime &lt;= 0)
+                {
+                    GotoNextDay("You got too tired and passed out.");
+                }
+            }
+        }
+        else if(gameDay == 4)
+        {
+            if (canCountdown)
+            {
+                levelTime -= Time.deltaTime;
+                string hours = Mathf.Floor((levelTime / 86400) % 24).ToString("00");
+                string minutes = Mathf.Floor((levelTime / 60) % 60).ToString("00");
+                string seconds = (levelTime % 60).ToString("00");
+                string milliseconds = ((levelTime * 100) % 100).ToString("00");
+                Clock.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = hours + " : " + minutes + " : " + seconds + " : " + milliseconds;
+
+                if (previousNormalMinute != int.Parse(seconds))
+                {
+                    previousNormalMinute = int.Parse(seconds);
+                    Clock.transform.GetChild(0).GetChild(1).GetComponent&lt;AudioSource&gt;().Play();
+                }
+            }
+
+            if (levelTime == 0)
+            {
+                Player.GetComponent&lt;PlayerController&gt;().canMove = false;
+                canCountdown = false;
+                GameOver();
+            }
+        }
+
+        //Destruct timer
+        if (canCountdown && destructTime > 0)
+        {
+            destructTime -= Time.deltaTime;
+            string minutes = Mathf.Floor((destructTime / 60) % 60).ToString("00");
+            string seconds = (destructTime % 60).ToString("00");
+            string milliseconds = ((destructTime * 100) % 100).ToString("00");
+            BlinkingCanvas.transform.GetChild(2).GetComponent&lt;Text&gt;().text = minutes + " : " + seconds + " : " + milliseconds;
+
+            if (previousDestructSecond != int.Parse(minutes))
+            {
+                previousDestructSecond = int.Parse(minutes);
+                BlinkingCanvas.transform.GetChild(2).GetComponent&lt;AudioSource&gt;().Play();
+            }
+
+            if(destructTime &lt;= 0)
+            {
+                KeypadGameObject.GetComponent&lt;AudioSource&gt;().Stop();
+                KeypadGameObject.GetComponent&lt;AudioSource&gt;().loop = false;
+                PlayDeathSound("explosion");
+                GameOver("The bunker's self destruct system detonated, killing you instantly.");
+            }
+        }
+    }
+								</code>
+							</pre>
+						</div>
+					</div>	
+
+					<div class = "bottomInternalContentArea">
+						<div class = "differentSizeContentWrapper">		
+							<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Check out other projects</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--
+			<div class = "secondaryContentArea">
+				
+			</div>
+			-->
+		</main>
+		
+		<footer>
+			Website last updated 9/1/2019
+			<br><br><br>
+			All images found on this site are property of Joshua Holland
+		</footer>		
+	</body>
+	
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+</html>

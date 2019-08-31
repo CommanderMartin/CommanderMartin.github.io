@@ -1,0 +1,613 @@
+nav{
+	min-height: 5em;
+	background-color: #e7e7e7;
+	width: 100%;
+}
+
+nav a{
+	text-decoration: none;
+	color: black;
+}
+
+body{
+	background-color: #f1f0ee;
+	margin: 0 auto;
+}
+
+footer{	
+	min-height: 6em;
+	margin: 0 auto;
+	padding-top: 2em;
+	text-align: center;
+	background-color: #e7e7e7;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+}
+
+/*Classes*/
+.aboveNav{
+	background-color: #b11a21;
+	/*
+	background-image: url("Images/Gradient.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	*/
+	min-height: 0.15em;
+	padding-top: 0.55em;
+	padding-left: 4em;
+}
+
+.belowFoot{
+	background-color: #b11a21;
+	/*
+	background-image: url("Images/Gradient.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	*/
+	min-height: 0.15em;
+	padding-top: 0.55em;
+	padding-left: 4em;
+}
+
+.mainContent{
+	background-color: #f1f0ee;
+	width: 74%;
+	margin: -0.76em auto 0 auto;
+	padding: 0.5em;
+	min-height: 50em;
+	border-left: 3px solid;
+	border-color: #b11a21;
+}
+
+.leftContent{
+	float: left;
+	padding: 0.5em;
+}
+
+.indexSelfIntro{
+	width: 90%;
+	margin: 1em auto 10em auto;
+	padding: 0.5em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	border-radius: 10px;
+}
+
+.indexSelfIntro h2{
+	font-size: 4em;
+	padding-left: 1.25em;
+	margin-top: -0.05em;
+}
+
+.indexSelfIntro h3{
+	font-size: 3em;
+	padding-left: 3em;
+	margin-top: -1.25em;
+}
+
+.textColorRed{
+	color: #b11a21;
+}
+
+.bumper{
+	font-size: 1.5em;
+}
+
+.bumper:nth-of-type(1){
+	padding-left: 2.5em;
+}
+
+.bumper:nth-of-type(2){
+	padding-left: 5em;
+}
+
+.bumper:nth-of-type(3){
+	padding-left: 7.5em;
+}
+
+.nonStackingBumper{
+	font-size: 1.5em;
+	padding-left: 2.5em;
+}
+ 
+.projectDisplay{
+	width: 75%;
+	margin: 1em auto;
+	padding: 0.5em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	min-height: 13em;
+	border-radius: 10px;
+}
+
+.projectImageAreaContainer{
+	float: left;
+	width: 20%;
+	height: 20%;
+	background-color: #f1f0ee;
+	border-radius: 10px;
+	margin-right: 1em;
+}
+
+.projectTechnicalComponentsBumper{
+	min-height: 4.5em;
+}
+
+.projectHeaderParagraph{
+	line-height: 1.4em;
+}
+
+.projectTextAreaContainer{
+	margin-bottom: 2em;
+}
+
+.navInternalContainer{
+	padding: 1.25em 2em;
+	float: right;
+}
+
+.rectangularButton{
+	background-color: #f1f0ee;
+	border: #f1f0ee solid;
+	margin: 0.2em;
+	padding: 0.2em 1.9em;	
+	border-radius: 10px;
+	font-size: 24px;	
+	cursor: pointer;
+}
+
+.projectDisplay .rectangularButton, .insetSitemapPageContainer .rectangularButton{
+	min-width: 12em;
+}
+
+.rectangularButton:hover{
+	border: #b11a21 solid;
+}
+
+.rectangularButton a{
+	text-decoration: none;
+	color: #000000;
+}
+
+.clearFloat{
+	clear: right;
+}
+
+.infoBox{
+	width: 75%;
+	margin: 1em auto;
+	padding: 1em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	min-height: 3em;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.sitemapPageContainer{
+	width: 75%;
+	margin: 1em auto;
+	padding: 0.5em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	min-height: 3em;
+	border-radius: 10px;
+}
+
+.insetSitemapPageContainer{
+	width: 65%;
+	margin: 0.5em auto;
+	padding: 0.5em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	min-height: 3em;
+	border-radius: 10px;
+}
+
+.codeSample{
+	font: monospace;
+	margin: 0 auto;
+	padding: 1em;
+	min-height: 10em;
+	width: 90%;
+}
+
+.codeSampleContent{
+	margin: 1em auto;
+	padding: 0.5em 0.5em 1em 0.5em;
+	background-color: #e0e0e0;
+	border-radius: 10px;
+	width: 90%;
+}
+
+.externalReferenceExplainer{
+	padding-left: 3.8em;
+	line-height: 1.25;
+}
+
+.customh1{
+	font-size: 2em;
+}
+
+.redUnderline{
+	text-decoration: underline;
+	text-decoration-color: #b11a21;
+}
+
+.codeSampleHeader{
+	font-size: 3em;	
+	width: 100%;
+	text-align: center;
+	letter-spacing: 0.1em;
+}
+
+/*Images*/
+.headerLogo{
+	padding: 0.5em 0.5em 0.5em 0.75em;
+	border-radius: 0 0 1em 0;
+	width: 5%;
+	height: 5%;
+	float: left;
+	background-color: #e7e7e7;
+	border-left: solid #b11a21 0.5em;
+}
+
+.projectDisplayImage{
+	width: 90%;
+	height: 90%;
+	padding: 0.5em;
+	margin: 0 auto;
+}
+
+.projectThumbnailImage{
+	width: 55%;
+	height: 55%;
+	margin: auto;
+}
+
+.thumbnailImages1, .thumbnailImages2, .thumbnailImages3{
+	width: 70%;
+	margin: 0 auto;
+}
+
+/* Slick */
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    position: absolute;
+    top: 50%;
+
+    display: block;
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    border: none;
+	border-radius: 5px;
+    outline: none;
+    background: #e0e0e0;
+}
+.slick-prev:hover,
+.slick-next:hover
+{
+	background-color: #b11a21;
+}
+
+.slick-prev
+{
+    left: -20px;
+	color: #b11a21;
+	font-size: 30px;
+}
+
+.slick-next
+{
+    right: -20px;
+	color: #b11a21;
+	font-size: 30px;
+}
+
+.slick-prev:hover, 
+.slick-next:hover{
+	color: #e0e0e0;
+}
+
+/*Custom slick*/
+.thumbnail{
+	text-align: center;
+	line-height: 25px;
+}
+
+.slick-slide{
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+/*Media Queries*/
+@media only screen and (max-width: 1400px){
+	.headerLogo{
+		width: 7%;
+		height: 7%;
+	}		
+	
+	.mainContent{
+		width: 80%;
+	}
+	
+	.indexSelfIntro{
+		margin: 1em auto 8em auto;
+	}
+	
+	.projectDisplay{
+		width: 85%;
+	}
+	
+	.bumper{
+		font-size: 1.3em;
+	}
+}
+
+@media only screen and (max-width: 1000px){
+	.headerLogo{
+		width: 9%;
+		height: 9%;
+	}	
+	
+	.mainContent{
+		width: 95%;
+		border-left: none;
+	}
+	
+	.leftContent{
+		display: none;
+	}
+	
+	.indexSelfIntro{
+		width: 95%;
+		margin: 1em auto 6em auto;
+	}
+	
+	.rectangularButton{
+		padding: 0.2em 1.5em;
+	}
+	
+	.bumper{
+		font-size: 1.3em;
+	}
+	
+	.projectImageAreaContainer{
+		width: 25%;
+		height: 25%;
+	}
+	
+	.projectTechnicalComponentsBumper{
+		min-height: 4em;
+	}
+
+}
+
+@media only screen and (max-width: 800px){
+	.headerLogo{
+		width: 11%;
+		height: 11%;
+	}		
+	
+	.mainContent{
+		width: 92%;
+		border-left: none;
+	}
+	
+	.rectangularButton{
+		padding: 0.2em 1.25em;	
+		font-size: 22px;	
+	}
+
+	.navInternalContainer{
+		padding: 1.25em 1.5em;
+	}	
+	
+	.bumper{
+		font-size: 1em;
+	}
+	
+	.indexSelfIntro h2{
+		font-size: 3.25em;
+		padding-left: 0.75em;
+		margin-top: -0.05em;
+	}
+
+	.indexSelfIntro h3{
+		font-size: 2.25em;
+		padding-left: 2em;
+		margin-top: -1.25em;
+	}
+	
+	.bumper:nth-of-type(1){
+		padding-left: 0.5em;
+	}
+
+	.bumper:nth-of-type(2){
+		padding-left: 3em;
+	}
+
+	.bumper:nth-of-type(3){
+		padding-left: 5.5em;
+	}
+	
+	.projectImageAreaContainer{
+		width: 30%;
+		height: 30%;
+	}
+	
+	.projectTechnicalComponentsBumper{
+		min-height: 3em;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	.headerLogo{
+		width: 12%;
+		height: 12%;
+	}
+	
+	.rectangularButton{
+		padding: 0.1em 0.7em;	
+		font-size: 20px;	
+	}	
+	
+	.bumper{
+		font-size: 0.8em;
+	}
+	
+	.indexSelfIntro{
+		width: 95%;
+		margin: 1em auto 4em auto;
+	}
+	
+	.indexSelfIntro h2{
+		font-size: 2.75em;
+		padding-left: 0.75em;
+		margin-top: -0.05em;
+	}
+
+	.indexSelfIntro h3{
+		font-size: 2em;
+		padding-left: 2em;
+		margin-top: -1.25em;
+	}
+	
+	.navInternalContainer{
+		padding: 1.25em 1.25em;
+		float: right;
+	}
+	
+	.projectImageAreaContainer{
+		width: 35%;
+		height: 35%;
+	}
+	
+	.projectTechnicalComponentsBumper{
+		min-height: 1em;
+	}
+}
+
+@media only screen and (max-width: 500px){
+	.headerLogo{
+		width: 15%;
+		height: 15%;
+	}
+	
+	.indexSelfIntro{
+		width: 97%;
+		margin: 1em auto 2em auto;
+	}
+	
+	.rectangularButton{
+		padding: 0.1em 0.5em;	
+		font-size: 18px;	
+	}	
+	
+	.bumper{
+		font-size: 0.6em;
+	}
+	
+	.indexSelfIntro h2{
+		font-size: 2em;
+		padding-left: 0.75em;
+		margin-top: -0.05em;
+	}
+
+	.indexSelfIntro h3{
+		font-size: 1.25em;
+		padding-left: 2em;
+		margin-top: -1.25em;
+	}
+	
+	.navInternalContainer{
+		padding: 1.25em 0.25em;
+		float: right;
+	}
+	
+	.projectDisplay{
+		width: 90%;
+	}
+	
+	.projectImageAreaContainer{
+		width: 40%;
+		height: 40%;
+	}
+	
+	.projectTechnicalComponentsBumper{
+		min-height: 0em;
+	}
+}
+
+@media only screen and (max-width: 400px){
+	.headerLogo{
+		width: 18%;
+		height: 18%;
+	}
+	
+	.indexSelfIntro{
+		width: 98%;
+		margin: 1em auto 2em auto;
+	}
+	
+	.rectangularButton{
+		padding: 0.15em 0.25em;	
+		font-size: 16px;	
+	}	
+	
+	.bumper{
+		font-size: 0.55em;
+	}
+	
+	.indexSelfIntro h2{
+		font-size: 1.5em;
+		padding-left: 0.75em;
+		margin-top: -0.05em;
+	}
+
+	.indexSelfIntro h3{
+		font-size: 0.75em;
+		padding-left: 2em;
+		margin-top: -1.25em;
+	}
+	
+	.navInternalContainer{
+		padding: 1em 0.1em;
+		float: right;
+	}
+	
+	.projectDisplay{
+		width: 90%;
+	}
+	
+	.projectImageAreaContainer{
+		width: 40%;
+		height: 40%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

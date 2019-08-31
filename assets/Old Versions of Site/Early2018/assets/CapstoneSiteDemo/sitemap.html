@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Middle Georgia Justice</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--[if lt EI 9]>
+	<script src= "http://html5shim.googlecode.com/svn/trunk/html5.js">
+	</script>
+	<![endif]-->
+	
+	<link rel="icon" href="images/hammerFavicon.ico" type="image/gif">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href = "css/custom/siteStyle.css">
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<!-- Header include -->
+	<header>
+		<div class="homePage">
+			<a href="index.php"><img src="images/Header.png" alt="Middle Georgia Justice" id="mainLogo" /></a>
+			<img src="images/newLogo.png" alt="Logo" id="sideLogo" />
+		</div>
+	</header>
+	
+	<!-- Navigation include -->
+	<style>
+		@media only screen and (min-width: 900px){
+			.dropbtn{
+				display: none;
+			}
+		}
+		@media only screen and (max-width: 900px){
+			button{
+				border-radius: .5em;
+			}
+			
+			.dropbtn {
+				background-color: #3498DB;
+				color: white;
+				padding: 15px 30px;
+				font-size: 16px;
+				border: none;
+				cursor: pointer;
+			}
+			
+			.dropbtn:hover, .dropbtn:focus {
+				background-color: #2980B9;
+			}
+			
+			.dropdown {
+				position: relative;
+				display: inline-block;
+				margin: 0 auto;
+			}
+			
+			.dropdown-content {
+				display: none;
+				background-color: #f1f1f1;
+				min-width: 160px;
+				overflow: auto;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+			
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+			
+			.dropdown a:hover {background-color: #ddd}
+			
+			.show {display:block;}
+		}
+	</style>
+
+	<div class = "outerNavbar">
+		<nav class = "navbar">
+			<div class="dropdown">
+				<button onclick="myFunction()" class="dropbtn">Menu</button>
+				<div id="myDropdown" class="dropdown-content">
+					<a class = "navbarA" href="index.html">Home</a>
+						
+					<a class = "navbarA" href="donate.html">Donations</a>
+						
+					<a class = "navbarA" href="events.html">Events</a>
+						
+					<a class = "navbarA" href="lawyer_incubator.html">Incubator Program</a>
+							
+					<a class = "navbarA" href="aboutus.html">About Us</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<script>
+		function myFunction() {
+			document.getElementById("myDropdown").classList.toggle("show");
+		}
+
+		// Close the dropdown menu if the user clicks outside of it
+		window.onclick = function(event) {
+		  if (!event.target.matches('.dropbtn')) {
+
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+			  var openDropdown = dropdowns[i];
+			  if (openDropdown.classList.contains('show')) {
+				openDropdown.classList.remove('show');
+			  }
+			}
+		  }
+		}
+	</script>
+
+	<!-- Main Content section -->
+	<main role="main" class="container">
+		  <div class="jumbotron">
+				<!-- Home Section ---------------------------------------------------------------------------- -->
+				<table class = "sitemapTable">
+					<tr>							
+						<th><span  class = "centerer">Home Page</span></th>						
+					</tr>
+					
+					<tr>
+						<td> <a class="nav-link" href="index.html">Home</a> </td>
+					</tr>
+				</table>
+				
+				<br><br>
+				
+				<!-- Account Section ------------------------------------------------------------------------- -->
+				<table class = "sitemapTable borders">
+					<tr>						
+						<th>Contact Pages</th>								
+					</tr>
+					
+					<tr>
+						<td> <a class="nav-link" href="lawyerPortal.html">Lawyer Portal</a> </td>
+					</tr>
+					
+					<tr>
+						<td> <a class="nav-link" href="askaquestion.html">Ask A Question</a> </td>
+					</tr>
+				</table>
+				
+				<br><br>
+				
+				<table class = "sitemapTable borders">
+					<tr>						
+						<th>Programs</th>								
+					</tr>
+					
+					<tr>
+						<td> <a class="nav-link" href="aboutus.html">About Us</a> </td>
+					</tr>
+					
+					<tr>
+						<td> <a class="nav-link" href="donate.html">Donate</a> </td>
+					</tr>
+					
+					<tr>
+						<td> <a class="nav-link" href="events.html">Events</a> </td>
+					</tr>
+					
+					<tr>
+						<td> <a class="nav-link" href="lawyer_incubator.html">Lawyer Incubator</a> </td>
+					</tr>
+				</table>
+				
+				<br><br>
+				
+				<!-- Paragraph for text if needed ---------------------------------------------------------------- -->
+				<p class="lead">	
+					<br><br>
+				
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit lobortis rutrum. Etiam ultricies, 
+					ligula eu lacinia ornare, magna tellus aliquet est, vitae fringilla odio arcu at ipsum. Vestibulum at 
+					rutrum sapien. Sed leo magna, lobortis nec erat eu, feugiat tincidunt enim. Aliquam molestie sit amet 
+					est rutrum tempor. 
+				</p>			
+		  </div>
+	</main>	
+	
+	<!-- Footer include -->
+	<footer>	  
+		<!-- Left Column Div --------------------------------------------------------------------------------- -->
+		<div class = "footerBox leftFooterBox">		
+			<h5>Contact Us</h5>
+				
+			<div class = "internalFooterBox">					
+				<ul>						
+					<li>&emsp;</li>
+					<li><a href="lawyerPortal.html">Lawyer Portal</a></li>
+					<li>&emsp;</li>
+					<li><a href="askaquestion.html">Ask A Question</a></li>
+				</ul>
+			</div>
+		</div>
+			
+		<!-- Mid Column Div ---------------------------------------------------------------------------------- -->
+		<div class = "footerBox midFooterBox">		
+			<!--<h5>Sponsors</h5>
+						
+			<div class="internalFooterBox">
+				<ul>
+					<br />
+					<li>Middle Georgia Access To Justice Council</li>
+					<li>& </li>
+					<li>Community Foundation of Central Georgia, Inc.</li>
+					<li><a href="https://cfcga.org/fund/middle-georgia-access-justice-inc-fund/"><img src="images/communityFoundation_Logo.png" id="communityLogo"; /></a></li>
+				</ul>
+			</div>				  
+			<br>------------------------->
+		</div>
+				
+		<!-- Right Column Div -------------------------------------------------------------------------------- -->
+		<div class = "footerBox">
+				
+			<h5>About</h5>
+				
+			<div class = "internalFooterBox">					
+				<ul>
+					<li>&emsp;</li>
+					<li><a href="aboutus.html">About Us</a></li>
+					<li>&emsp;</li>
+					<li><a href="sitemap.html">Sitemap</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<br>
+		<br>
+	</footer>
+	
+</body>
+
+</html>

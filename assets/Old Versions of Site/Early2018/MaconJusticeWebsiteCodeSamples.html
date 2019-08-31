@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Commander Martin's Portfolio - Macon Justice Website Code Samples</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--[if lt EI 9]>
+		<script src= "http://html5shim.googlecode.com/svn/trunk/html5.js">
+		</script>
+		<![endif]-->
+		
+		<link rel = "stylesheet" type = "text/css" href = "assets/siteStyle.css">
+		<link rel = "stylesheet" type = "text/css" href = "assets/slick/slick.css"/>		
+		
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-32x32.png" sizes = "32x32" />
+		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-16x16.png" sizes = "16x16" />
+	</head>
+	
+	<div class = "aboveNav"></div>	
+	
+	<nav>	
+		<div class = "logo">
+			<img class = "headerLogo" src = "assets/Images/Logo.png" alt = "Commanding Games Studios Logo">
+		</div>
+	
+		<div class = "navInternalContainer">
+			<a class = "navbarA" href="index.html"><button class = "rectangularButton" type="button">Home</button></a>
+			
+			<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Projects</button></a>
+				
+			<a class = "navbarA" href="https://linkedin.com/in/joshua-holland-85791b134/"><button class = "rectangularButton" type="button">LinkedIn</button></a>
+		</div>
+	</nav>
+	
+	<div class = "clearFloat"></div>
+
+	<body>
+		<!-- Main Content section -->
+		<main>
+			<div class = "leftContent">
+				
+			</div>
+			
+			<div class = "mainContent">
+				<div class = "codeSampleContent">
+					<div class = "codeSampleHeader">					
+						<span class = "textColorRed customh1">M</span><span class = "redUnderline">acon</span>
+						<span class = "textColorRed customh1">J</span><span class = "redUnderline">ustice</span>
+					</div>		
+
+					<h2> Code Sample 1 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;A small sitemap page for the website.  Displayed a list of the site contents organized into categories</span>
+					<br><br>
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Middle Georgia Justice&lt;/title&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+	
+    &lt;!--[if lt EI 9]&gt;
+    &lt;script src= "http://html5shim.googlecode.com/svn/trunk/html5.js"&gt;
+    &lt;/script&gt;
+    &lt;![endif]--&gt;
+	
+    &lt;link rel="icon" href="images/hammerFavicon.ico" type="image/gif"&gt;
+	
+    &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"&gt;
+    &lt;link rel="stylesheet" href = "css/custom/siteStyle.css"&gt;
+	
+    &lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" &gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;!-- Header include -------------------------------------------------------------------------------------- --&gt;
+    &lt;?php include("includes/header.php"); ?&gt;
+	
+    &lt;!-- Navigation include ---------------------------------------------------------------------------------- --&gt;
+    &lt;?php include("includes/navigation.php"); ?&gt;
+
+    &lt;!-- Main Content section --&gt;
+    &lt;main role="main" class="container"&gt;
+        &lt;div class="jumbotron"&gt;
+            &lt;!-- Home Section -------------------------------------------------------------------------------- --&gt;
+            &lt;table class = "sitemapTable"&gt;
+                &lt;tr&gt;							
+                    &lt;th&gt;&lt;span  class = "centerer"&gt;Home Page&lt;/span&gt;&lt;/th&gt;						
+                &lt;/tr&gt;
+					
+                &lt;tr&gt;
+                    &lt;td&gt; &lt;a class="nav-link" href="index.php"&gt;Home&lt;/a&gt; &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+				
+            &lt;br&gt;&lt;br&gt;
+				
+            &lt;!-- Account Section ----------------------------------------------------------------------------- --&gt;
+            &lt;table class = "sitemapTable borders"&gt;
+                &lt;tr&gt;						
+                    &lt;th&gt;Contact Pages&lt;/th&gt;								
+                &lt;/tr&gt;
+					
+                &lt;tr&gt;
+                    &lt;td&gt; &lt;a class="nav-link" href="lawyerPortal.php"&gt;Lawyer Portal&lt;/a&gt; &lt;/td&gt;
+                &lt;/tr&gt;
+					
+                &lt;tr&gt;
+                    &lt;td&gt; &lt;a class="nav-link" href="askaquestion.php"&gt;Ask A Question&lt;/a&gt; &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+				
+            &lt;br&gt;&lt;br&gt;
+				
+            &lt;table class = "sitemapTable borders"&gt;
+                &lt;tr&gt;						
+                    &lt;th&gt;Programs&lt;/th&gt;								
+                &lt;/tr&gt;
+					
+                &lt;tr&gt;
+                    &lt;td&gt; &lt;a class="nav-link" href="aboutus.php"&gt;About Us&lt;/a&gt; &lt;/td&gt;
+                &lt;/tr&gt;
+					
+                &lt;tr&gt;
+                    &lt;td&gt; &lt;a class="nav-link" href="donate.php"&gt;Donate&lt;/a&gt; &lt;/td&gt;
+                &lt;/tr&gt;
+					
+                &lt;tr&gt;
+                    &lt;td&gt; &lt;a class="nav-link" href="event.php"&gt;Events&lt;/a&gt; &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+				
+            &lt;br&gt;&lt;br&gt;
+				
+            &lt;!-- Paragraph for text if needed ---------------------------------------------------------------- --&gt;
+            &lt;p class="lead"&gt;	
+                &lt;br&gt;&lt;br&gt;
+				
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit lobortis rutrum. Etiam ultricies, 
+                ligula eu lacinia ornare, magna tellus aliquet est, vitae fringilla odio arcu at ipsum. Vestibulum at 
+                rutrum sapien. Sed leo magna, lobortis nec erat eu, feugiat tincidunt enim. Aliquam molestie sit amet 
+                est rutrum tempor. 
+            &lt;/p&gt;			
+        &lt;/div&gt;
+    &lt;/main&gt;	
+	
+    &lt;!-- Footer include -------------------------------------------------------------------------------------- --&gt;
+    &lt;?php include("includes/footer.php"); ?&gt;
+	
+&lt;/body&gt;
+
+&lt;/html&gt;							
+							</code>
+						</pre>
+					</div>	
+					
+					<h2> Code Sample 2 </h2>
+					
+					<span class = "nonStackingBumper"> Code Function: </span>
+					<br>
+					<span class = "nonStackingBumper">&emsp;&emsp;A list of the members of the group we were developing the site for</span>
+					<br><br>					
+					
+					<div class = "codeSample">
+						<pre class = "prettyprint linenums = true">
+							<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Middle Georgia Justice&lt;/title&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+	
+    &lt;!--[if lt EI 9]&gt;
+    &lt;script src= "http://html5shim.googlecode.com/svn/trunk/html5.js"&gt;
+    &lt;/script&gt;
+    &lt;![endif]--&gt;
+	
+    &lt;link rel="icon" href="images/hammerFavicon.ico" type="image/gif"&gt;
+	
+    &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"&gt;
+    &lt;link rel="stylesheet" href = "css/custom/siteStyle.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;!-- Header include --&gt;
+    &lt;?php include("includes/header.php"); ?&gt;
+	
+    &lt;!-- Navigation include -->
+    &lt;?php include("includes/navigation.php"); ?&gt;
+
+
+    &lt;!-- Main Content section --&gt;	
+    &lt;main role="main" class="container"&gt;		
+        &lt;div class="jumbotron"&gt;
+            &lt;p class="lead"&gt;
+                &lt;b&gt;Our Mission&lt;/b&gt;
+				
+                &lt;br>&lt;br&gt;
+				
+                The mission of the Middle Georgia Access to Justice Council is 
+                to support and supplement existing systems for providing legal 
+                assistance to those who need it but cannot afford it by 
+                identifying gaps in services, developing new programs, and 
+                facilitating collaboration among existing legal service 
+                providers.  
+				
+            &lt;/p&gt;
+			
+            &lt;br&gt;
+			
+            &lt;p class="lead"&gt;
+				
+                &lt;b&gt;Our Vision&lt;/b&gt;
+				
+                &lt;br>&lt;br&gt;
+				
+                Our vision is that the justice gap in middle 
+                Georgia will be substantially reduced by our efforts to find a 
+                way to provide a lawyer for everyone in middle Georgia who 
+                needs a lawyer but cannot afford one.				
+				
+            &lt;/p&gt;
+			
+            &lt;br>&lt;br&gt;
+				
+            &lt;b&gt;Officers and Directors&lt;/b&gt;
+
+            &lt;!-- Officers and Directors Table ---------------------------------------------------------------- --&gt;
+            &lt;table class = "aboutusTable"&gt;			
+                &lt;tr&gt;
+                    &lt;td&gt;Bill Adams, President&lt;/td&gt;			
+                    &lt;td&gt;Adams Law Firm&lt;/td&gt;				
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;Timothy W. Floyd, Vice President&lt;/td&gt;			
+                    &lt;td&gt;Mercer Law Professor&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;Stuart Walker, Secretary&lt;/td&gt;			
+                    &lt;td&gt;Martin Snow&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;William Gifford, Treasurer&lt;/td&gt;			
+                    &lt;td&gt;Retired Attorney&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;Brian Adams&lt;/td&gt;			
+                    &lt;td&gt;Adams Law Firm&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;Cathy Cox&lt;/td&gt;			
+                    &lt;td&gt;Dean, Mercer Law School&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;Tomeika Daniel&lt;/td&gt;			
+                    &lt;td&gt;GLSP Managing Attorney&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;Ashley Deadwyler-Heuman&lt;/td&gt;			
+                    &lt;td&gt;Deadwyler-Heuman Law Firm&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;Daisy H. Floyd&lt;/td&gt;			
+                    &lt;td&gt;Mercer Law Professor&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;Brian Jarrard&lt;/td&gt;			
+                    &lt;td&gt;Jarrard Law Group&lt;/td&gt;
+                &lt;/tr&gt;		
+	
+                &lt;tr&gt;
+                    &lt;td&gt;Julia Magda&lt;/td&gt;			
+                    &lt;td&gt;Magda Law&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;Veronica McClendon&lt;/td&gt;			
+                    &lt;td&gt;Georgia Heirs Property Law Center & Macon Bar Executive Committee&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;John Reeves&lt;/td&gt;			
+                    &lt;td&gt;Smith, Hawkins, Hollingsworth & Reeves&lt;/td&gt;
+                &lt;/tr&gt;
+		
+                &lt;tr&gt;
+                    &lt;td&gt;Albert Reichert&lt;/td&gt;			
+                    &lt;td&gt;Anderson, Walker & Reichert&lt;/td&gt;
+                &lt;/tr&gt;
+				
+                &lt;tr&gt;
+                    &lt;td&gt;Rachael Schell&lt;/td&gt;			
+                    &lt;td&gt;GLSP PAI Coordinator&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+
+            &lt;br>&lt;br&gt;				
+				
+            &lt;/p&gt;
+        &lt;/div&gt;		
+    &lt;/main&gt;		
+	
+    &lt;!-- Footer include --&gt;
+    &lt;?php include("includes/footer.php"); ?&gt;
+	
+&lt;/body&gt;
+
+&lt;/html&gt;
+							</code>
+						</pre>
+					</div>
+					
+					<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Check out other projects</button></a>
+				</div>
+		</main>			
+	
+		<div class = "clearFloat"></div>
+		
+		<footer>
+			<div class = "internalContainer">
+				Created in 2018 
+				<br>
+				<br>
+				<a class = "navbarA" href="sitemap.html">Sitemap</a>			
+				<br>
+				<br>
+				Last Updated 9/30/2018			
+			</div>
+		</footer>
+		
+		<div class = "belowFoot"></div>
+	</body>		
+	
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+	
+</html>

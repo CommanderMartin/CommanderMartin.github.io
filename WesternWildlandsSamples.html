@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Commander Martin's Portfolio - Macon Justice Website Code Samples</title>
+		<title>Joshua Holland's Portfolio - Index</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -11,62 +11,60 @@
 		<![endif]-->
 		
 		<link rel = "stylesheet" type = "text/css" href = "assets/siteStyle.css">
-		<link rel = "stylesheet" type = "text/css" href = "assets/slick/slick.css"/>		
 		
 		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-32x32.png" sizes = "32x32" />
 		<link rel = "icon" type = "image/png" href = "assets/Images/Favicons/favicon-16x16.png" sizes = "16x16" />
 	</head>
 	
-	<div class = "aboveNav"></div>	
-	
-	<nav>	
-		<div class = "logo">
-			<img class = "headerLogo" src = "assets/Images/Logo.png" alt = "Commanding Games Studios Logo">
-		</div>
-	
-		<div class = "navInternalContainer">
-			<a class = "navbarA" href="index.html"><button class = "rectangularButton" type="button">Home</button></a>
-			
-			<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Projects</button></a>
-				
-			<a class = "navbarA" href="https://linkedin.com/in/joshua-holland-85791b134/"><button class = "rectangularButton" type="button">LinkedIn</button></a>
-		</div>
-	</nav>
-	
-	<div class = "clearFloat"></div>
-
-	<body>
+	<body>	
 		<!-- Main Content section -->
 		<main>
-			<div class = "leftContent">
+			<div class = "mainBackgroundImage">
+				<div class = "aboveNav">
+		
+				</div>
 				
-			</div>
+				<nav>	
+					<a class = "navbarA" href="index.html"><button class = "rectangularButton" type="button">Home</button></a>
 			
-			<div class = "mainContent">
-				<div class = "codeSampleContent">
-					<div class = "codeSampleHeader">					
-						<span class = "textColorRed customh1">W</span><span class = "redUnderline">estern</span>
-						<span class = "textColorRed customh1">W</span><span class = "redUnderline">ildlands</span>
-					</div>		
+					<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Projects</button></a>
+					
+					<a class = "navbarA" href="https://commandermartin.itch.io/"><button class = "rectangularButton" type="button">Itch.io</button></a>
+						
+					<a class = "navbarA" href="https://linkedin.com/in/joshuadaleholland/"><button class = "rectangularButton" type="button">LinkedIn</button></a>
+					
+					<a class = "navbarA" href="resume.html"><button class = "rectangularButton" type="button">My Resume</button></a>
+				</nav>
+				
+				<div class = "mainContentArea">				
+					<div class = "topInternalContentArea">
+						
+					</div>
+					
+					<div class = "midInternalContentArea">
+						<div class = "codeSampleHeader">					
+							<span class = "redText customh1">W</span><span class = "redUnderline customh2">estern</span>
+							<span class = "redText customh1">W</span><span class = "redUnderline customh2">ildlands</span>
+						</div>		
 
-					<h2> Code Sample 1 </h2>
-					
-					<span class = "nonStackingBumper"> Code Function: </span>
-					<br>
-					<span class = "nonStackingBumper">&emsp;&emsp;Moves or inserts items into or out of the player inventory</span>
-					<br><br>
-					
-					<p class = "externalReferenceExplainer">
-						External References:
+						<h2> Code Sample 1 </h2>
+						
+						Code Function:
+						<br>
+						&emsp;&emsp;Moves or inserts items into or out of the player inventory
 						<br><br>
-						GIM - Script dedicated to managing the game's UI<br>
-						GetInventoryLists - Empties and refills the lists managing the player's inventory items<br>
-						TransferInventoryItemContinuation - Moves item to new location in the inventory, resets and updates UI sprites, and empties controller variables
-					</p>
-					
-					<div class = "codeSample">
-						<pre class = "prettyprint linenums = true">
-							<code>
+						
+						<p class = "externalReferenceExplainer">
+							External References:
+							<br><br>
+							GIM - Script dedicated to managing the game's UI<br>
+							GetInventoryLists - Empties and refills the lists managing the player's inventory items<br>
+							TransferInventoryItemContinuation - Moves item to new location in the inventory, resets and updates UI sprites, and empties controller variables
+						</p>
+						
+						<div class = "codeSample">
+							<pre class = "prettyprint linenums = true">
+								<code>
 //Starts the process ----------------------------------------------------------------------------------------------------------------------------
 public void StartItemMove(GameObject pressedButton)
 {
@@ -80,7 +78,7 @@ public void StartItemMove(GameObject pressedButton)
             isMoving = true;
             gim.InventoryUIButtons("drop button ED");
 
-            activatedSlot1.transform.GetChild(0).GetComponent&lt;Canvas>().overrideSorting = true;
+            activatedSlot1.transform.GetChild(0).GetComponent&lt;Canvas&gt;().overrideSorting = true;
         }
     }
     else if(activatedSlot1 != null && activatedSlot2 != activatedSlot1)
@@ -94,7 +92,7 @@ public void StartItemMove(GameObject pressedButton)
             gim.InventoryUIButtons("drop button ED");
 
             //Disable override sorting
-            activatedSlot1.transform.GetChild(0).GetComponent&lt;Canvas>().overrideSorting = false;
+            activatedSlot1.transform.GetChild(0).GetComponent&lt;Canvas&gt;().overrideSorting = false;
 
             //Re-parent
             activatedSlot1.transform.GetChild(0).transform.localPosition = new Vector3(0f, 0f, 0f);
@@ -178,27 +176,29 @@ private void TransferInventoryItem()
         Debug.Log("An unexpected error occured in the inventory script");
     }
 }						
-							</code>
-						</pre>
-					</div>	
+								</code>
+							</pre>
+						</div>
+					</div>
 					
-					<h2> Code Sample 2 </h2>
+					<div class = "midInternalContentArea">
+						<h2> Code Sample 2 </h2>
 					
-					<span class = "nonStackingBumper"> Code Function: </span>
-					<br>
-					<span class = "nonStackingBumper">&emsp;&emsp;Saves and loads binary data to/from one of three savefiles</span>
-					<br><br>	
+						Code Function:
+						<br>
+						&emsp;&emsp;Saves and loads binary data to/from one of three savefiles
+						<br><br>	
 
-					<p class = "externalReferenceExplainer">
-						External References:
-						<br><br>
-						DS - Serializable script used for on and off-loading data to and from save files<br>
-						UpdateEntityPositions - Updates select entities with the position in the save file
-					</p>
-					
-					<div class = "codeSample">
-						<pre class = "prettyprint linenums = true">
-							<code>
+						<p class = "externalReferenceExplainer">
+							External References:
+							<br><br>
+							DS - Serializable script used for on and off-loading data to and from save files<br>
+							UpdateEntityPositions - Updates select entities with the position in the save file
+						</p>
+						
+						<div class = "codeSample">
+							<pre class = "prettyprint linenums = true">
+								<code>
 //Saves the current game
 public void saveData(int save)
 {
@@ -288,26 +288,28 @@ public void loadData(int save)
 
     UpdateEntityPositions();
 }
-							</code>
-						</pre>
-					</div>
+								</code>
+							</pre>
+						</div>				
+					</div>		
 					
-					<h2> Code Sample 3 </h2>
+					<div class = "midInternalContentArea">
+						<h2> Code Sample 3 </h2>
 					
-					<span class = "nonStackingBumper"> Code Function: </span>
-					<br>
-					<span class = "nonStackingBumper">&emsp;&emsp;Reduce NPC needs on a single or repeating basis</span>
-					<br><br>					
-					
-					<p class = "externalReferenceExplainer">
-						External References:
-						<br><br>
-						UpdateUIElement - Updates the respective display with the new need value
-					</p>
-					
-					<div class = "codeSample">
-						<pre class = "prettyprint linenums = true">
-							<code>
+						Code Function:
+						<br>
+						&emsp;&emsp;Reduce NPC needs on a single or repeating basis
+						<br><br>					
+						
+						<p class = "externalReferenceExplainer">
+							External References:
+							<br><br>
+							UpdateUIElement - Updates the respective display with the new need value
+						</p>
+						
+						<div class = "codeSample">
+							<pre class = "prettyprint linenums = true">
+								<code>
 public void ModifyNeedValue(string type, int value)
 {
     if(type == "Health")
@@ -346,31 +348,32 @@ IEnumerator RecurringEffect(string type, int value, int repeatCt)
         StartCoroutine(RecurringEffect(type, value, repeatCt));
     }
 }
-							</code>
-						</pre>
+								</code>
+							</pre>
+						</div>				
 					</div>
 					
-					<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Check out other projects</button></a>
+					<div class = "bottomInternalContentArea">
+						<div class = "differentSizeContentWrapper">		
+							<a class = "navbarA" href="projects.html"><button class = "rectangularButton" type="button">Check out other projects</button></a>
+						</div>
+					</div>
 				</div>
-		</main>			
-	
-		<div class = "clearFloat"></div>
+			</div>
+			
+			<!--
+			<div class = "secondaryContentArea">
+				
+			</div>
+			-->
+		</main>
 		
 		<footer>
-			<div class = "internalContainer">
-				Created in 2018 
-				<br>
-				<br>
-				<a class = "navbarA" href="sitemap.html">Sitemap</a>			
-				<br>
-				<br>
-				Last Updated 9/30/2018			
-			</div>
-		</footer>
-		
-		<div class = "belowFoot"></div>
-	</body>		
+			Website last updated 9/1/2019
+			<br><br><br>
+			All images found on this site are property of Joshua Holland
+		</footer>		
+	</body>
 	
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
-	
 </html>
